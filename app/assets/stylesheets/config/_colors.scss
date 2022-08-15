@@ -8,3 +8,25 @@ $orange: #E67E22;
 $green: #1EDD88;
 $gray: #0E0000;
 $light-gray: #F4F4F4;
+
+// Our colour scheme
+
+/* SCSS HEX */
+$space: #1b1f3aff;
+$magnolia: #ebe7efff;
+$byzantium: #53354aff;
+$carmine: #a64942ff;
+$coral: #ff7844ff;
+
+// for brevity
+
+/* SCSS Gradient */
+$gradient-top: linear-gradient(0deg, #1b1f3aff, #ebe7efff, #53354aff, #a64942ff, #ff7844ff);
+$gradient-right: linear-gradient(90deg, #1b1f3aff, #ebe7efff, #53354aff, #a64942ff, #ff7844ff);
+$gradient-bottom: linear-gradient(180deg, #1b1f3aff, #ebe7efff, #53354aff, #a64942ff, #ff7844ff);
+$gradient-left: linear-gradient(270deg, #1b1f3aff, #ebe7efff, #53354aff, #a64942ff, #ff7844ff);
+$gradient-top-right: linear-gradient(45deg, #1b1f3aff, #ebe7efff, #53354aff, #a64942ff, #ff7844ff);
+$gradient-bottom-right: linear-gradient(135deg, #1b1f3aff, #ebe7efff, #53354aff, #a64942ff, #ff7844ff);
+$gradient-top-left: linear-gradient(225deg, #1b1f3aff, #ebe7efff, #53354aff, #a64942ff, #ff7844ff);
+$gradient-bottom-left: linear-gradient(315deg, #1b1f3aff, #ebe7efff, #53354aff, #a64942ff, #ff7844ff);
+$gradient-radial: radial-gradient(#1b1f3aff, #ebe7efff, #53354aff, #a64942ff, #ff7844ff);
