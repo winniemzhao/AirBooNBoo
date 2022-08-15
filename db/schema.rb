@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_15_200844) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_15_201440) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -25,6 +25,15 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_15_200844) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["users_id"], name: "index_ghosts_on_users_id"
+  end
+
+  create_table "reviews", force: :cascade do |t|
+    t.integer "rating"
+    t.text "comment"
+    t.bigint "spooks_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["spooks_id"], name: "index_reviews_on_spooks_id"
   end
 
   create_table "spooks", force: :cascade do |t|
@@ -55,6 +64,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_15_200844) do
   end
 
   add_foreign_key "ghosts", "users", column: "users_id"
+  add_foreign_key "reviews", "spooks", column: "spooks_id"
   add_foreign_key "spooks", "ghosts", column: "ghosts_id"
   add_foreign_key "spooks", "users", column: "users_id"
 end
