@@ -6,6 +6,4 @@ class User < ApplicationRecord
 
   has_many :ghosts
   has_many :spooks
-
-  validates :name, :description, presence: true
 end
