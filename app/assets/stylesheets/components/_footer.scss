@@ -3,7 +3,7 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 0px 50px;
+  padding: 0px 24px;
   color: rgba(0,0,0,0.3);
   position: absolute;
   bottom: 0;
@@ -32,5 +32,5 @@
   color: $ghost;
   opacity: 0.5;
   text-align: end;
-  margin-left: 16px;
+  margin: 16px 0 16px 16px;
 }
