@@ -17,5 +17,6 @@
 </div>
 
 <div>
+  <%= link_to "delete this spook", my_spook_path(@spook), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this spook?" } %>
   <%= link_to "Back to spooks", my_spooks_path %>
 </div>

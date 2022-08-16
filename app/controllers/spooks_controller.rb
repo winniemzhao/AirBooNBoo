@@ -37,6 +37,8 @@ class SpooksController < ApplicationController
 
   def destroy
     # As a user, I can cancel a spook/haunting/request
+    @spook.destroy
+    redirect_to my_spooks_path(@spook.ghost), status: :see_other
   end
 
   private
@@ -47,5 +49,9 @@ class SpooksController < ApplicationController
 
   def set_ghost
     @ghost = Ghost.find(params[:ghost_id])
+  end
+
+  def set_spook
+    @spook = Spook.find(params[:id])
   end
 end
