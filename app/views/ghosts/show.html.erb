@@ -1,1 +1,27 @@
-<h1>Ghost show page: <%= @ghost.name %></h1>
+<div class="wrapper">
+  <div class="ghost-title">
+    <div>
+      <h1><%= @ghost.name.capitalize %></h1>
+      <h3><%= @ghost.spook_action %></h3>
+    </div>
+    <div>
+      <p><i class="fa-solid fa-star"></i> 5 - 204 Reviews</p>
+      <p><%= @ghost.location.capitalize %></p>
+    </div>
+  </div>
+  <div class="ghost-info">
+    <%= cl_image_tag('') %>
+  </div>
+
+</div>
+
+<%# name
+spook_action
+reviews
+location
+
+description
+is_active
+daily_rate
+
+user_id %>
