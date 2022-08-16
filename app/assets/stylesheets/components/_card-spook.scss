@@ -1,0 +1,48 @@
+.card-spook {
+  overflow: hidden;
+  height: 120px;
+  background: $ghost;
+  box-shadow: 0 0 15px rgba(0,0,0,0.2);
+  display: flex;
+  align-items: center;
+  border-radius: 16px;
+}
+
+.card-spook img {
+  height: 100%;
+  width: 120px;
+  object-fit: cover;
+}
+
+.card-spook h2 {
+  font-size: 16px;
+  font-weight: bold;
+  margin: 0;
+}
+
+.card-spook p {
+  font-size: 12px;
+  line-height: 1.4;
+  opacity: .7;
+  margin-bottom: 0;
+  margin-top: 8px;
+}
+
+.card-spook p:first-of-type {
+  font-size: 14px;
+}
+
+.card-spook .card-spook-infos {
+  padding: 16px;
+  position: relative;
+}
+
+.card-spook-infos .card-spook-status {
+  position: absolute;
+  left: -50px;
+  top: -10px;
+  background-color: #f5f3f7;
+  color: #1b1f3a;
+  border-radius: 5px;
+  padding: 1px 5px;
+}
