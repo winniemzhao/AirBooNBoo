@@ -1,6 +1,6 @@
 class Review < ApplicationRecord
-  belongs_to :spooks
-  belongs_to :ghosts, through: :spooks
+  belongs_to :spook
+  belongs_to :ghost, through: :spooks
 
   validates :rating, :comment, presence: true
 end
