@@ -1,0 +1,11 @@
+<% sum = 0 %>
+
+<% @ghost.reviews.each do |review| %>
+  <% sum += review.rating %>
+<% end %>
+
+<% if @ghost.reviews.length > 0 %>
+  <% @total_rating = sum / @ghost.reviews.length %>
+<% else %>
+  <% @total_rating = 0 %>
+<% end %>

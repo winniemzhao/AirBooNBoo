@@ -1,28 +1,16 @@
 <div class="wrapper">
   <div class="ghost-title">
-    <div>
-      <h1><%= @ghost.name.capitalize %></h1>
-      <h3><%= @ghost.spook_action %></h3>
-    </div>
-    <div>
-      <% sum = 0 %>
-      <% @ghost.reviews.each do |review| %>
-        <% sum += review.rating %>
-      <% end %>
-      <% if @ghost.reviews.length > 0 %>
-        <% total_rating = sum / @ghost.reviews.length %>
-      <% else %>
-        <% total_rating = sum / (@ghost.reviews.length + 1) %>
-      <% end %>
-      <p><i class="fa-solid fa-star"></i> <%= total_rating %> - <%= @ghost.reviews.length %> Reviews</p>
-      <p><%= @ghost.location.capitalize %></p>
-    </div>
+    <h1><%= @ghost.name.capitalize %> the <%= @ghost.spook_action %></h1>
+    <% render 'total-rating' %>
+    <p>
+      <i class="fa-solid fa-star"></i> <%= @total_rating %> · <%= @ghost.reviews.length %> Reviews · <%= @ghost.location.capitalize %>
+    </p>
   </div>
   <div class="ghost-info">
     <%= cl_image_tag @ghost.photo.key, :alt=>"ghost profile picture" %>
     <div class="ghost-details">
-      <h4>Hosted by <%= @ghost.user.name %></h4>
       <p><%= @ghost.description %></p>
+      <p>Hosted by <%= @ghost.user.name %></p>
     </div>
   </div>
   <div class="ghost-reviews">
