@@ -5,14 +5,40 @@
       <h3><%= @ghost.spook_action %></h3>
     </div>
     <div>
-      <p><i class="fa-solid fa-star"></i> 5 - 204 Reviews</p>
+      <% sum = 0 %>
+      <% @ghost.reviews.each do |review| %>
+        <% sum += review.rating %>
+      <% end %>
+      <% if @ghost.reviews.length > 0 %>
+        <% total_rating = sum / @ghost.reviews.length %>
+      <% else %>
+        <% total_rating = sum / (@ghost.reviews.length + 1) %>
+      <% end %>
+      <p><i class="fa-solid fa-star"></i> <%= total_rating %> - <%= @ghost.reviews.length %> Reviews</p>
       <p><%= @ghost.location.capitalize %></p>
     </div>
   </div>
   <div class="ghost-info">
-    <%= cl_image_tag('') %>
+    <%= cl_image_tag @ghost.photo.key, :alt=>"ghost profile picture" %>
+    <div class="ghost-details">
+      <h4>Hosted by <%= @ghost.user.name %></h4>
+      <p><%= @ghost.description %></p>
+    </div>
   </div>
-
+  <div class="ghost-reviews">
+    <h2>Reviews</h2>
+    <div class="ghost-review">
+      <% @ghost.reviews.each do |review| %>
+        <%= cl_image_tag review.spook.user.photo.key%>
+        <div>
+          <p><%= review.spook.user.name %></p>
+          <p><%= review.created_at %></p>
+        </div>
+        <p><%= "★" * total_rating %></p>
+        <p><%= review.comment %></p>
+      <% end %>
+    </div>
+  </div>
 </div>
 
 <%# name
