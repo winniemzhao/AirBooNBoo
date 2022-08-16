@@ -81,3 +81,5 @@ group :test do
 end
 
 gem "annotate"
+
+gem "cloudinary"
