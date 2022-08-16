@@ -1,6 +1,6 @@
 .navbar {
   justify-content: space-between;
-  background: $magnolia;
+  background: $space;
 }
 
 .navbar .navbar-collapse {
@@ -8,5 +8,15 @@
 }
 
 .navbar .navbar-brand img {
-  width: 40px;
+  width: 125px;
+}
+
+.nav-link {
+  color: $ghost;
+}
+
+.nav-link:hover {
+  color: $ghost;
+  font-style: italic;
+  font-weight: bolder;
 }
