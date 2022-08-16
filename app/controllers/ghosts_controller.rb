@@ -13,7 +13,7 @@ class GhostsController < ApplicationController
   end
 
   def show
-    @ghost = Ghost.find(params[:ghost_id])
+    @ghost = Ghost.find(params[:id])
   end
 
   def update

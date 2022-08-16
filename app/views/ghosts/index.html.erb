@@ -1,7 +1,5 @@
 <h1>hello index ghosts</h1>
 
-<%# <ul>
-<% @ghosts.each |ghost| do %>
-<%# <li><%= link_to  , ghost</li>  %>
-<%# <% end %>
-<%# </ul> %>
+<% @ghosts.each do | ghost | %>
+<li><%= link_to ghost.name, ghost_path(ghost) %></li>
+<% end %>
