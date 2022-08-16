@@ -5,9 +5,9 @@
       <%= simple_form_for(@ghost) do |f| %>
         <%= f.input :name, placeholder: 'Name of ghost' %>
         <%= f.input :spook_action, collection: ["Interactive Personality Ghost", "Funnel Ghost", "Orbs", "Poltergeist", "Mist/Fog/Whisp Ghost"] %>
-        <%= f.input :location, placeholder: 'Ghost location' %>
-        <%= f.input :daily_rate, label: 'Where does your ghost haunt?' %>
-        <%= f.input :description %>
+        <%= f.input :location, placeholder: 'Where does your ghost like to haunt?' %>
+        <%= f.input :daily_rate, placeholder: 'Enter your price here' %>
+        <%= f.input :description, placeholder: 'This is where you present your ghost to the world!' %>
         <%= f.submit "Post your Ghost", class="btn-flat" %>
       <% end %>
     </div>
