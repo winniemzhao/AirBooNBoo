@@ -1,5 +1,15 @@
 require 'faker'
 
+puts "Destroying previous instances (comment this out if you want)"
+
+Review.destroy_all
+Spook.destroy_all
+Ghost.destroy_all
+User.destroy_all
+
+# note that this needs to be entirely rewritten to promote random users and ghosts
+# this is only for testing on Tuesday
+
 # generate 20 users
 (1..10).each do
   User.create!(
@@ -35,6 +45,17 @@ puts "Creating spooky spooks..."
   spook.ghost = [Ghost.first, Ghost.last].sample
   spook.user = spook.ghost.user == User.first ? User.last : User.first
   spook.save!
+end
+
+puts "Creating one or two reviews..."
+
+rand(1..2).times do
+  review = Review.new(
+    rating: rand(1..10),
+    comment: Faker::Lorem.sentence,
+  )
+  review.spook = [Spook.first, Spook.last].sample
+  review.save!
 end
 
 puts "👻"

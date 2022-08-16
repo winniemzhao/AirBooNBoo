@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row justify-content-center pt-3">
+    <div class="col-6">
+      <h1 class="d-flex justify-content-center">Describe thy phantom</h1>
+      <%= simple_form_for(@ghost) do |f| %>
+        <%= f.input :name, placeholder: 'Name of ghost' %>
+        <%= f.input :spook_action, collection: ["Interactive Personality Ghost", "Funnel Ghost", "Orbs", "Poltergeist", "Mist/Fog/Whisp Ghost"] %>
+        <%= f.input :location, placeholder: 'Ghost location' %>
+        <%= f.input :daily_rate, label: 'Where does your ghost haunt?' %>
+        <%= f.input :description %>
+        <%= f.submit "Post your Ghost", class="btn-flat" %>
+      <% end %>
+    </div>
+  </div>
+</div>
