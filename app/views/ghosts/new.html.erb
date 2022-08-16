@@ -8,6 +8,7 @@
         <%= f.input :location, placeholder: 'Where does your ghost like to haunt?' %>
         <%= f.input :daily_rate, placeholder: 'Enter your price here' %>
         <%= f.input :description, placeholder: 'This is where you present your ghost to the world!' %>
+        <%= f.input :photo, label: "Upload a photo", as: :file %>
         <%= f.submit "Post your Ghost", class: "btn-flat" %>
       <% end %>
     </div>
