@@ -1,6 +1,10 @@
 .navbar {
   justify-content: space-between;
   background: $space;
+  position: sticky;
+  width: 100%;
+  top: 0;
+  height: 60px;
 }
 
 .navbar .navbar-collapse {
