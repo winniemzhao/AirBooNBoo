@@ -1,0 +1,2 @@
+class SpooksController < ApplicationController
+end
