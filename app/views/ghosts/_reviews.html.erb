@@ -1,0 +1,11 @@
+<div class="ghost-review">
+  <% @ghost.reviews.each do |review| %>
+    <%= cl_image_tag review.spook.user.photo.key%>
+    <div>
+      <p><%= review.spook.user.name %></p>
+      <p><%= review.created_at %></p>
+    </div>
+    <p><%= "★" * total_rating %></p>
+    <p><%= review.comment %></p>
+  <% end %>
+</div>
