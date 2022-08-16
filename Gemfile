@@ -80,4 +80,6 @@ group :test do
   gem "webdrivers"
 end
 
+gem "annotate"
+
 gem "cloudinary"
