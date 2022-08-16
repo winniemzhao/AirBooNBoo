@@ -59,3 +59,4 @@ rand(1..2).times do
 end
 
 puts "👻"
+

@@ -1,1 +1,21 @@
-<h1> Hi from the show spook page </h1>
+<h1>Your Spook </h1>
+  <p>
+    <strong>Name:</strong>
+    <%= @spook.ghost.name %>
+  </p>
+
+  <p>
+    <strong>Dates:</strong>
+    <%= @spook.start_date %>
+    to
+    <%= @spook.end_date %>
+  </p>
+
+  <p> <strong>Total:</strong>
+   <%= @spook.ghost.daily_rate * (@spook.end_date - @spook.start_date) %>
+  </p>
+</div>
+
+<div>
+  <%= link_to "Back to spooks", my_spooks_path %>
+</div>
