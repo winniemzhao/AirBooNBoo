@@ -6,4 +6,5 @@ class User < ApplicationRecord
 
   has_many :ghosts
   has_many :spooks
+  has_one_attached :photo
 end
