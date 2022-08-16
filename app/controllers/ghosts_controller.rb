@@ -1,5 +1,6 @@
 class GhostsController < ApplicationController
   def index
+    @ghosts = Ghost.all
   end
 
   def create
@@ -12,6 +13,7 @@ class GhostsController < ApplicationController
   end
 
   def show
+    @ghost = Ghost.find(params[:ghost_id])
   end
 
   def update
