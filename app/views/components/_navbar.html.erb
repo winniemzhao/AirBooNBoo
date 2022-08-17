@@ -19,8 +19,9 @@
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <% if current_user.ghosts.length > 0 %>
                 <%# user is a gHost %>
-                <%= link_to "Create a New Ghost", new_ghost_path, class: "dropdown-item" %>
+                <%= link_to "My Spooks", my_spooks_path, class: "dropdown-item" %>
                 <%= link_to "My Ghosts", my_ghosts_path, class: "dropdown-item" %>
+                <%= link_to "Create a New Ghost", new_ghost_path, class: "dropdown-item" %>
                 <%= link_to "My Ghost Spooks", my_ghost_spooks_path, class: "dropdown-item" %>
               <% else %>
               <%# user is not a gHost %>
