@@ -8,11 +8,10 @@ class GhostsController < ApplicationController
   def create
     @ghost = Ghost.new(ghost_params)
     @ghost.user = current_user
-    # to avoid making a new migration file
-    @ghost.is_active = false
-    if @ghost.save!
+    if @ghost.save
       redirect_to ghost_path(@ghost)
     else
+      # raise
       render :new, status: :unprocessable_entity
     end
   end
@@ -34,7 +33,12 @@ class GhostsController < ApplicationController
 
   def destroy
     @ghost.destroy
-    redirect_to ghosts_path, status: :see_other
+    redirect_to my_ghosts_path, status: :see_other
+  end
+
+  def my_ghosts
+    @user_id = current_user.id
+    @my_ghosts = Ghost.where(user_id: @user_id)
   end
 
   private
