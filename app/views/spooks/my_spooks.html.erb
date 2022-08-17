@@ -15,10 +15,7 @@
    $<%= (spook.ghost.daily_rate * (spook.end_date - spook.start_date)).round(2) %>
   </p>
   <p> <strong>Status: </strong>
-   <%= if spook.status == nil %>
-      <%= return 'Pending' %>
-      <% else @spook.status.capitalize %>
-      <% end%>
+   <%= spook.status %>
   </p>
     <p>
       <%= link_to "Show this spook", my_spook_path(spook.id) %>
