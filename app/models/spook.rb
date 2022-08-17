@@ -7,7 +7,7 @@ class Spook < ApplicationRecord
 
   enum status: {
     pending: 0,
-    active: 1,
-    archived: 2
+    accepted: 1,
+    declined: 2
   }
 end

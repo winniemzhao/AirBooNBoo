@@ -7,6 +7,13 @@ class SpooksController < ApplicationController
     @spooks = Spook.where(user_id: current_user)
   end
 
+  def my_ghost_spooks
+    @ghosts = Ghost.where(user_id: current_user)
+    @ghosts.each do |ghost|
+      @my_ghost_spooks = Spook.where(ghost_id: ghost.id)
+    end
+  end
+
   def show
     # As a user, I can see all the ghosts that I've rented
   end
@@ -48,7 +55,7 @@ class SpooksController < ApplicationController
   private
 
   def spook_params
-    params.require(:spook).permit(:start_date, :end_date)
+    params.require(:spook).permit(:start_date, :end_date, :status)
   end
 
   def set_ghost
