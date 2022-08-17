@@ -1,4 +1,5 @@
 require 'faker'
+require 'open-uri'
 
 puts "Destroying previous instances (comment this out if you want)"
 
@@ -11,32 +12,38 @@ User.destroy_all
 # this is only for testing on Tuesday
 
 # generate 20 users
-(1..10).each do
-  User.create!(
+# piggybacking on Mido's code here
+(1..5).each do |num|
+  file = URI.open("https://loremflickr.com/320/240/person")
+  user = User.new(
       name: Faker::Name.name,
       description: Faker::Movies::Ghostbusters.quote,
       email: Faker::Internet.email,
       password: "password"
   )
+  user.photo.attach(io: file, filename: "user#{num}.png", content_type: "image/jpg")
+  user.save!
 end
 
 puts "Creating ghosts..."
 
-10.times do
+(1..5).each do |num|
+  file = URI.open("https://loremflickr.com/320/240/ghost")
   ghost = Ghost.new(
     name: Faker::Movies::Ghostbusters.character,
     spook_action: %w[interactive ectoplasm poltergeist orb funnel].sample,
-    location: %w[Manchester Paris Toronto],
+    location: %w[Manchester Paris Toronto].sample,
     description: Faker::Lorem.paragraph,
     daily_rate: Faker::Number.decimal(l_digits: 2)
   )
+  ghost.photo.attach(io: file, filename: "ghost#{num}.png", content_type: "image/jpg")
   ghost.user = [User.first, User.last].sample
   ghost.save!
 end
 
 puts "Creating spooky spooks..."
 
-10.times do
+5.times do
   spook = Spook.new(
     start_date: Faker::Date.between(from: '2014-09-23', to: '2014-09-25'),
     end_date: Faker::Date.between(from: '2014-10-01', to: '2014-10-03'),
@@ -58,5 +65,4 @@ rand(1..2).times do
   review.save!
 end
 
-puts "👻"
-
+puts "👻👻👻"
