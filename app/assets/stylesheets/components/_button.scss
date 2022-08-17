@@ -17,12 +17,10 @@
   padding: 8px 24px;
   border-radius: 50px;
   background: $carmine;
-  border: 2px solid $carmine;
   transition: background 0.3s ease;
 }
 
 .btn-flat:hover {
   background: $byzantium;
   color: $ghost;
-  border: 2px solid $ghost;
 }
