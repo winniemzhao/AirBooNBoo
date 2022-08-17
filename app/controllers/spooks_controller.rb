@@ -1,15 +1,14 @@
 class SpooksController < ApplicationController
-  before_action :set_spook, only: :destroy
+  before_action :set_spook, only: [:destroy, :show, :edit, :update]
   before_action :set_ghost, only: [:new, :create]
 
   def my_spooks
     # As a user, I can see all the ghosts that I've rented
-    @spooks = Spook.all
+    @spooks = Spook.where(user_id: current_user)
   end
 
   def show
     # As a user, I can see all the ghosts that I've rented
-    @spook = Spook.find(params[:id])
   end
 
   def new
@@ -33,6 +32,11 @@ class SpooksController < ApplicationController
   end
 
   def update
+    if @spook.update(spook_params)
+      redirect_to my_spook_path(@spook), notice: "Your spook was successfully updated."
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy

@@ -1,1 +1,29 @@
-<h1>Hi from my_spooks</h1>
+<h1>My Spooks</h1>
+
+<div id="spooks">
+  <% @spooks.each do |spook| %>
+  <p> Name:
+    <%= spook.ghost.name %>
+  </p>
+  <p>
+    <strong>Dates:</strong>
+    <%= spook.start_date %>
+    to
+    <%= spook.end_date %>
+  </p>
+  <p> <strong>Total: </strong>
+   $<%= (spook.ghost.daily_rate * (spook.end_date - spook.start_date)).round(2) %>
+  </p>
+  <p> <strong>Status: </strong>
+   <%= if spook.status == nil %>
+      <%= return 'Pending' %>
+      <% else @spook.status.capitalize %>
+      <% end%>
+  </p>
+    <p>
+      <%= link_to "Show this spook", my_spook_path(spook.id) %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "Browse Ghost", ghosts_path %>

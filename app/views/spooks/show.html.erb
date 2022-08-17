@@ -11,12 +11,18 @@
     <%= @spook.end_date %>
   </p>
 
-  <p> <strong>Total:</strong>
-   <%= @spook.ghost.daily_rate * (@spook.end_date - @spook.start_date) %>
+  <p> <strong>Total: </strong>
+   $<%= (@spook.ghost.daily_rate * (@spook.end_date - @spook.start_date)).round(2) %>
   </p>
+
+  <p> <strong>Status: </strong>
+   <%= @spook.status.capitalize%>
+  </p>
+
 </div>
 
 <div>
+  <%= link_to "Edit spook dates", edit_my_spook_path(@spook) %>
   <%= link_to "delete this spook", my_spook_path(@spook), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this spook?" } %>
   <%= link_to "Back to spooks", my_spooks_path %>
 </div>
