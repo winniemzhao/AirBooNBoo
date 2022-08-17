@@ -1,6 +1,6 @@
 <div class="navbar navbar navbar-expand-sm navbar-light">
   <div class="container-fluid">
-    <%= link_to "#", class: "navbar-brand" do %>
+    <%= link_to "/", class: "navbar-brand" do %>
       <%= image_tag "airboonboo-logo-white.png" %>
     <% end %>
 
@@ -11,33 +11,26 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav me-auto">
         <% if user_signed_in? %>
-          <li class="nav-item active">
-            <%= link_to "Home", "#", class: "nav-link" %>
-          </li>
           <li class="nav-item">
-            <%= link_to "Book a Ghost", "#", class: "nav-link" %>
+            <%= link_to "Book a Ghost", ghosts_path, class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
             <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-              <%= link_to "Post Your Ghosts", "#", class: "dropdown-item" %>
-              <%= link_to "See Spooky History", "#", class: "dropdown-item" %>
+              <% if current_user.ghosts.length > 0 %>
+                <%# user is a gHost %>
+                <%= link_to "My Ghosts", my_ghost_spooks_path, class: "dropdown-item" %>
+                <%= link_to "My Ghosts' Spooks", my_ghost_spooks_path, class: "dropdown-item" %>
+              <% else %>
+              <%# user is not a gHost %>
+                <%= link_to "My Spooks", my_spooks_path, class: "dropdown-item" %>
+              <% end %>
               <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
             </div>
           </li>
         <% else %>
-        <%# temporary links for testing %>
           <li class="nav-item">
-            <%= link_to "All Ghosts", ghosts_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "My Spooks (user)", my_spooks_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "New Ghost (gHost)", new_ghost_path, class: "nav-link" %>
-          </li>
-          <li class="nav-item">
-            <%= link_to "My Ghosts' Spooks (gHost)", my_ghost_spooks_path, class: "nav-link" %>
+            <%= link_to "See All Ghosts", ghosts_path, class: "nav-link" %>
           </li>
           <li class="nav-item">
             <%= link_to "Login", new_user_session_path, class: "nav-link" %>
