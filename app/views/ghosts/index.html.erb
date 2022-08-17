@@ -1,19 +1,24 @@
 
 <div class="container-ghost">
-<% @ghosts.each do | ghost | %>
-  <div class="card-ghost">
-  <%= link_to ghost_path(ghost) do %>
-   <%= cl_image_tag ghost.photo.key, :alt=>"ghost profile picture"%>
-   <% end %>
-    <div class="card-ghost-infos">
-      <div>
-        <h2><%= link_to ghost.name, ghost_path(ghost) %></h2>
-        <p><%= ghost.description %></p>
-        <h2 class="card-ghost-pricing">$ <%= ghost.daily_rate %> night</h2>
-      </div>
-      <h2 class="card-ghost-user">⭐4.5</h2>
-    </div>
 
-  </div>
-<% end %>
+  <% @ghosts.each do | ghost | %>
+
+    <div class="card-ghost d-flex flex-column align-items-center">
+    <div style="width: 300px">
+      <%= link_to ghost_path(ghost) do %>
+        <%= cl_image_tag ghost.photo.key, :width => 300, :height => 250, :alt=>"ghost profile picture"%>
+      <% end %>
+      </div>
+      <div class="card-ghost-infos">
+        <div>
+          <h2><%= link_to ghost.name, ghost_path(ghost) %></h2>
+          <p><%= ghost.description %></p>
+          <h2 class="card-ghost-pricing">$ <%= ghost.daily_rate %> night</h2>
+        </div>
+        <h2 class="card-ghost-user">⭐4.5</h2>
+      </div>
+
+
+    </div>
+  <% end %>
 </div>
