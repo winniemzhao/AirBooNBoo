@@ -5,7 +5,6 @@
     <% @spooks.each do |spook| %>
       <%= link_to my_spook_path(spook) do %>
         <div class="card-spook mb-5 mt-5">
-          <%# TO FIX: the random padding/margin around the top/bottom of the card that isn't clickable %>
           <% if spook.ghost.photo.key? %>
             <%= cl_image_tag spook.ghost.photo.key %>
           <% else %>
@@ -15,8 +14,6 @@
             <h2><%= spook.ghost.name.capitalize %></h2>
             <p><%= spook.start_date %> - <%= spook.end_date %></p>
             <p>Total: $<%= (spook.ghost.daily_rate * (spook.end_date - spook.start_date)).round(2) %></p>
-            <%# TO FIX: the button encroaches on margin-bottom of the p above %>
-            <%#= link_to "More info", my_spook_path(spook.id), class:"btn-flat" %>
             <%# <button class="btn-flat">More info</button> %>
             <div class="card-spook-status"><%= spook.status %></div>
           </div>
