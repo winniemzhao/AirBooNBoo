@@ -1,5 +1,5 @@
 class SpooksController < ApplicationController
-  before_action :set_spook, only: [:destroy, :show, :edit, :update ]
+  before_action :set_spook, only: [:destroy, :show, :edit, :update]
   before_action :set_ghost, only: [:new, :create]
 
   def my_spooks
