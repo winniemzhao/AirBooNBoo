@@ -4,7 +4,7 @@
       <h1>Create your ghost</h1>
       <%= simple_form_for(@ghost) do |f| %>
         <%= f.input :name, placeholder: 'Name of ghost' %>
-        <%= f.input :spook_action, collection: ["Interactive Personality Ghost", "Funnel Ghost", "Orbs", "Poltergeist", "Mist/Fog/Whisp Ghost"] %>
+        <%= f.input :spook_action, collection: %w[Scare Joke Comfort Annoy Entertain Protect] %>
         <%= f.input :location, placeholder: 'Where does your ghost like to haunt?' %>
         <%= f.input :daily_rate, placeholder: 'Enter your price here' %>
         <%= f.input :description, placeholder: 'This is where you present your ghost to the world!' %>
