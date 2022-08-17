@@ -33,7 +33,12 @@ class GhostsController < ApplicationController
 
   def destroy
     @ghost.destroy
-    redirect_to ghosts_path, status: :see_other
+    redirect_to my_ghosts_path, status: :see_other
+  end
+
+  def my_ghosts
+    @user_id = current_user.id
+    @my_ghosts = Ghost.where(user_id: @user_id)
   end
 
   private
