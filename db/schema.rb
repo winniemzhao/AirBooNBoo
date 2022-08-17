@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_08_16_181040) do
+ActiveRecord::Schema[7.0].define(version: 2022_08_17_160716) do
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
 
@@ -45,7 +45,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_16_181040) do
   create_table "ghosts", force: :cascade do |t|
     t.string "name"
     t.string "spook_action"
-    t.boolean "is_active"
+    t.boolean "is_active", default: true
     t.string "location"
     t.text "description"
     t.float "daily_rate"
@@ -68,7 +68,7 @@ ActiveRecord::Schema[7.0].define(version: 2022_08_16_181040) do
     t.date "start_date"
     t.date "end_date"
     t.float "total_price"
-    t.integer "status"
+    t.integer "status", default: 0
     t.bigint "ghost_id", null: false
     t.bigint "user_id", null: false
     t.datetime "created_at", null: false
