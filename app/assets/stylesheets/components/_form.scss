@@ -12,3 +12,11 @@
 .form-row {
   width: 100%;
 }
+
+select {
+  font-size: 16px;
+}
+
+select:last-of-type {
+  margin-bottom: 16px;
+}
