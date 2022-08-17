@@ -1,5 +1,5 @@
 .ghost-title {
-  margin-bottom: 16px;
+  margin-bottom: 32px;
   width: 100%;
 }
 
@@ -17,8 +17,8 @@
   display: flex;
   justify-content: space-between;
   width: 100%;
-  margin-bottom: 16px;
-  padding-bottom: 16px;
+  margin-bottom: 32px;
+  padding-bottom: 32px;
   border-bottom: 1px solid $carmine;
 }
 
@@ -34,12 +34,20 @@
   padding-left: 16px;
 }
 
+.ghost-details h4 {
+  margin-bottom: 16px;
+}
+
 .ghost-details p {
   padding-bottom: 16px;
-  border-bottom: 1px solid $carmine;
+  // border-bottom: 1px solid $carmine;
   margin-bottom: 16px;
 }
 
 .ghost-reviews h2 {
   margin-bottom: 16px;
+}
+
+.new-spook-form {
+  margin-top: 16px;
 }
