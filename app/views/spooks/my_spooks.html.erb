@@ -1,26 +1,28 @@
-<h1>My Spooks</h1>
+<div class="wrapper">
+  <h1>My Spooks</h1>
 
-<div id="spooks">
-  <% @spooks.each do |spook| %>
-  <p> Name:
-    <%= spook.ghost.name %>
-  </p>
-  <p>
-    <strong>Dates:</strong>
-    <%= spook.start_date %>
-    to
-    <%= spook.end_date %>
-  </p>
-  <p> <strong>Total: </strong>
-   $<%= (spook.ghost.daily_rate * (spook.end_date - spook.start_date)).round(2) %>
-  </p>
-  <p> <strong>Status: </strong>
-   <%= spook.status %>
-  </p>
-    <p>
-      <%= link_to "Show this spook", my_spook_path(spook.id) %>
-    </p>
-  <% end %>
+  <div class="my-spooks">
+    <% @spooks.each do |spook| %>
+      <%= link_to my_spook_path(spook) do %>
+        <div class="card-spook mb-5 mt-5">
+          <%# TO FIX: the random padding/margin around the top/bottom of the card that isn't clickable %>
+          <% if spook.ghost.photo.key? %>
+            <%= cl_image_tag spook.ghost.photo.key %>
+          <% else %>
+            <img src="https://images.unsplash.com/photo-1583680599407-f73ab374fff4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" />
+          <% end %>
+          <div class="card-spook-infos">
+            <h2><%= spook.ghost.name.capitalize %></h2>
+            <p><%= spook.start_date %> - <%= spook.end_date %></p>
+            <p>Total: $<%= (spook.ghost.daily_rate * (spook.end_date - spook.start_date)).round(2) %></p>
+            <%# TO FIX: the button encroaches on margin-bottom of the p above %>
+            <p><%= link_to "More info", my_spook_path(spook.id), class:"btn-flat" %></p>
+            <p class="card-spook-status">status<%= spook.status %></p>
+          </div>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
+
+  <%= link_to "Find a Ghost", ghosts_path, class:"btn-flat" %>
 </div>
-
-<%= link_to "Browse Ghost", ghosts_path %>
