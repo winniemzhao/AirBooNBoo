@@ -1,6 +1,9 @@
 <div class="wrapper">
   <div class="ghost-title">
-    <h1><%= @ghost.name.capitalize %> the <%= @ghost.spook_action %></h1>
+    <div>
+      <h1><%= @ghost.name.capitalize %> the <%= @ghost.spook_action %></h1>
+      <h5>Hosted by <%= @ghost.user.name %></h5>
+    </div>
     <% render 'total-rating' %>
     <p>
       <i class="fa-solid fa-star"></i> <%= @total_rating %> · <%= @ghost.reviews.length %> Reviews · <%= @ghost.location.capitalize %>
@@ -10,7 +13,9 @@
     <%= cl_image_tag @ghost.photo.key, :alt=>"ghost profile picture" %>
     <div class="ghost-details">
       <p><%= @ghost.description %></p>
-      <h4>Hosted by <%= @ghost.user.name %></h4>
+      <div class="new-spook-form">
+        *Reserve this Ghost Form to be put here*
+      </div>
     </div>
   </div>
   <div class="ghost-reviews">
@@ -18,20 +23,7 @@
     <% if @ghost.reviews.length > 0 %>
       <% render 'reviews' %>
     <% else %>
-      <div>
-        This ghost does not have any reviews yet.
-      </div>
+      <p>BoOoOoOoo...this ghost does not have any reviews yet...</p>
     <% end %>
   </div>
 </div>
-
-<%# name
-spook_action
-reviews
-location
-
-description
-is_active
-daily_rate
-
-user_id %>

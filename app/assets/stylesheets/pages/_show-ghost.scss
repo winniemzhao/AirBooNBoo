@@ -1,5 +1,12 @@
 .ghost-title {
   margin-bottom: 16px;
+  width: 100%;
+}
+
+.ghost-title > div {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
 }
 
 .ghost-title h1 {
@@ -11,18 +18,20 @@
   justify-content: space-between;
   width: 100%;
   margin-bottom: 16px;
+  padding-bottom: 16px;
+  border-bottom: 1px solid $carmine;
 }
 
 .ghost-info img {
   width: calc(50% - 8px);
-  border: 1px solid black;
+  // border: 1px solid black;
   border-radius: 16px;
 }
 
 .ghost-details {
   width: calc(50% - 8px);
   margin-left: 16px;
-  padding: 0 16px;
+  padding-left: 16px;
 }
 
 .ghost-details p {
