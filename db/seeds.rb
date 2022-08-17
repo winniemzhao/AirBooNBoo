@@ -85,7 +85,7 @@ ghost_hard_user2 = Ghost.new(
   name: "Skull",
   spook_action: "poltergeist", ###!!!
   location: "Hell",
-  description: "The freshest ghost on the market, bones still attached!`",
+  description: "The freshest ghost on the market, bones still attached!",
   daily_rate: 250)
 ghost_hard_user2.user = user_hard
 ghost_hard_user2.photo.attach(io: File.open('app/assets/images/ghosts/skull.jpg'), filename: 'skull.jpg', content_type: 'image/jpg')
