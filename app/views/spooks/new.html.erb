@@ -1,10 +1,10 @@
-<div class="container mt-3">
-  <div class="row justify-content-center">
-    <div class="col-4">
-    <h2>Reserve  </h2>
+<div class="wrapper">
+  <div class="row justify-content-center form-row">
+    <div class="col-4 card-form">
+    <h1>Reserve <%= @ghost.name.capitalize %></h1>
       <%= simple_form_for([@ghost, @spook]) do |f| %>
-        <%= f.date_select :start_date, as: :date  %>
-        <%= f.date_select :end_date, as: :date  %>
+        <%= f.date_select :start_date, as: :date %>
+        <%= f.date_select :end_date, as: :date %>
         <%= f.submit 'Reserve my Spook!', class: 'btn-flat' %>
       <% end %>
     </div>
