@@ -1,0 +1,21 @@
+<h1>These are all my ghosts</h1>
+
+<% @my_ghosts.each do |ghost| %>
+  <div class="my-ghost">
+    <p><%= ghost.name %></p>
+    <p><%= ghost.spook_action %></p>
+    <p>Active:
+    <% if ghost.is_active %>
+      <%= " Yes"  %>
+    <% else %>
+      <%= " No" %>
+    <% end %>
+    </p>
+    <p>Location: <%= ghost.location %></p>
+    <p>Description: <%= ghost.description %></p>
+    <p>Daily Rate: <%= ghost.daily_rate %></p>
+    <%= link_to "Edit Ghost", edit_ghost_path(ghost) %>
+    <%= link_to "Delete Ghost", ghost_path(ghost), data: { turbo_method: 'delete', turbo_confirm: "Are you sure you want to delete #{ghost.name.capitalize}?"} %>
+  </div>
+
+<% end %>
