@@ -17,7 +17,9 @@ Rails.application.routes.draw do
   get '/my-spooks/:spook_id/reviews/new', to: 'reviews#new', as: :new_review
   post '/my-spooks/:spook_id/reviews', to: 'reviews#create'
 
-  get '/my-ghosts-spooks', to: 'spooks#my_ghost_spooks', as: :my_ghost_spooks
+  get '/my-ghosts', to: 'ghosts#my_ghosts', as: :my_ghosts # ghost#index for gHost
+
+  get '/my-ghosts-spooks', to: 'spooks#my_ghost_spooks', as: :my_ghost_spooks # for gHost
   get '/my-ghosts-spooks/:id/edit', to: 'spooks#edit_ghost_spooks', as: :edit_my_ghost_spook
   patch '/my-ghosts-spooks/:id', to: 'spooks#update_ghost_spooks'
 end

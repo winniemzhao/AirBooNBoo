@@ -8,11 +8,10 @@ class GhostsController < ApplicationController
   def create
     @ghost = Ghost.new(ghost_params)
     @ghost.user = current_user
-    # to avoid making a new migration file
-    @ghost.is_active = false
-    if @ghost.save!
+    if @ghost.save
       redirect_to ghost_path(@ghost)
     else
+      # raise
       render :new, status: :unprocessable_entity
     end
   end

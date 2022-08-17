@@ -8,9 +8,6 @@ Spook.destroy_all
 Ghost.destroy_all
 User.destroy_all
 
-# note that this needs to be entirely rewritten to promote random users and ghosts
-# this is only for testing on Tuesday
-
 # generate 20 users
 # piggybacking on Mido's code here
 (1..5).each do |num|
