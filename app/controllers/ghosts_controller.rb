@@ -1,4 +1,6 @@
 class GhostsController < ApplicationController
+  before_action :set_ghost, only: [:show, :edit, :update, :destroy]
+
   def index
     @ghosts = Ghost.all
   end
@@ -23,16 +25,23 @@ class GhostsController < ApplicationController
   end
 
   def show
-    @ghost = Ghost.find(params[:id])
   end
 
   def update
+    @ghost.update(ghost_params)
+    redirect_to ghost_path(@ghost)
   end
 
   def destroy
+    @ghost.destroy
+    redirect_to ghosts_path, status: :see_other
   end
 
   private
+
+  def set_ghost
+    @ghost = Ghost.find(params[:id])
+  end
 
   def ghost_params
     params.require(:ghost).permit(:name, :spook_action, :location, :daily_rate, :is_active, :user_id, :photo, :description)
