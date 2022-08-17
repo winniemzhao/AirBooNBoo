@@ -16,13 +16,13 @@
             <p><%= spook.start_date %> - <%= spook.end_date %></p>
             <p>Total: $<%= (spook.ghost.daily_rate * (spook.end_date - spook.start_date)).round(2) %></p>
             <%# TO FIX: the button encroaches on margin-bottom of the p above %>
-            <p><%= link_to "More info", my_spook_path(spook.id), class:"btn-flat" %></p>
-            <p class="card-spook-status">status<%= spook.status %></p>
+            <%#= link_to "More info", my_spook_path(spook.id), class:"btn-flat" %>
+            <%# <button class="btn-flat">More info</button> %>
+            <div class="card-spook-status"><%= spook.status %></div>
           </div>
         </div>
       <% end %>
     <% end %>
   </div>
-
   <%= link_to "Find a Ghost", ghosts_path, class:"btn-flat" %>
 </div>
