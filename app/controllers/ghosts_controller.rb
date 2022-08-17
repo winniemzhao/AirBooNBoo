@@ -1,5 +1,6 @@
 class GhostsController < ApplicationController
-  before_action :set_ghost, only: [:show, :edit, :update, :destroy]
+  before_action :set_ghost, only: %i[show edit update destroy]
+  SPOOK_ACTION = %w[Scare Joke Comfort Annoy Entertain Protect]
 
   def index
     @ghosts = Ghost.all

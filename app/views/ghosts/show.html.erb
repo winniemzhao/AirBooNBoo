@@ -1,21 +1,23 @@
 <div class="wrapper">
   <div class="ghost-title">
     <div>
-      <h1><%= @ghost.name.capitalize %> the <%= @ghost.spook_action %></h1>
-      <h5>Hosted by <%= @ghost.user.name %></h5>
+      <h1><%= @ghost.name.capitalize %> </h1>
+
     </div>
     <% render 'total-rating' %>
     <p>
-      <i class="fa-solid fa-star"></i> <%= @total_rating %> · <%= @ghost.reviews.length %> Reviews · <%= @ghost.location.capitalize %>
+      <i class="fa-solid fa-star"></i> <%= @total_rating %> · <%= @ghost.reviews.length %> Reviews · <%= @ghost.location.capitalize %> · Hosted by <%= @ghost.user.name %>
     </p>
+
   </div>
   <div class="ghost-info">
     <%= cl_image_tag @ghost.photo.key, :alt=>"ghost profile picture" %>
     <div class="ghost-details">
-      <p><%= @ghost.description %></p>
+      <h4><i class="fa-solid fa-ghost"></i> <%= @ghost.spook_action %></h4>
+      <p><%= @ghost.description %> blah blabhlhblahlsdk fkasdlfjas;ldfjka;sldkfj; askdf;la j;dfkjas;kdfj; alskjdflak jsldfkja wo;ireualksdflaksdflj;ldasjkflaijw</p>
       <div class="new-spook-form">
-        *Reserve this Ghost Form to be put here - temp link here:
-        <%= link_to "Book This Ghost", new_ghost_spook_path(@ghost) %>
+        <%# *Reserve this Ghost Form to be put here - temp link here: %>
+        <%= link_to "Book This Ghost", new_ghost_spook_path(@ghost), class:"btn-flat" %>
       </div>
     </div>
   </div>
