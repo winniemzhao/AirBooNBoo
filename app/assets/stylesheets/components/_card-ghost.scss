@@ -1,10 +1,19 @@
+
+.container-ghost {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+
 .card-ghost {
   overflow: hidden;
   background: $ghost;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 16px;
-  display: grid;
-
+  padding: 10px;
+  margin: 15px;
+  max-width: 350px;
 }
 
 .card-ghost > img {
@@ -37,7 +46,11 @@
 
 .card-ghost-infos .card-ghost-user {
   position: absolute;
-  right: 16px;
-  top: -20px;
+  right: 15px;
+  top: 1px;
   width: 40px;
+}
+
+a {
+  text-decoration: none;
 }

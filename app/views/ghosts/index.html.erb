@@ -1,16 +1,19 @@
-<h1>hello index ghosts</h1>
 
-
-<div class="card-ghost">
+<div class="container-ghost">
 <% @ghosts.each do | ghost | %>
-  <img src="https://images.unsplash.com/photo-1583680599407-f73ab374fff4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" />
-  <div class="card-ghost-infos">
-    <div>
-      <h2><%= link_to ghost.name, ghost_path(ghost) %></h2>
-      <p><%= ghost.description %></p>
+  <div class="card-ghost">
+  <%= link_to ghost_path(ghost) do %>
+   <%= cl_image_tag ghost.photo.key, :alt=>"ghost profile picture"%>
+   <% end %>
+    <div class="card-ghost-infos">
+      <div>
+        <h2><%= link_to ghost.name, ghost_path(ghost) %></h2>
+        <p><%= ghost.description %></p>
+        <h2 class="card-ghost-pricing">$ <%= ghost.daily_rate %> night</h2>
+      </div>
+      <h2 class="card-ghost-user">⭐4.5</h2>
     </div>
-    <h2 class="card-ghost-pricing"><%= ghost.daily_rate %>$</h2>
-    <img src="https://kitt.lewagon.com/placeholder/users/krokrob" class="card-ghost-user avatar-bordered" />
+
   </div>
-  <% end %>
+<% end %>
 </div>
