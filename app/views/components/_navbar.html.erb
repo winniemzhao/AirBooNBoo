@@ -15,20 +15,20 @@
             <%= link_to "Book a Ghost", ghosts_path, class: "nav-link" %>
           </li>
           <li class="nav-item dropdown">
-            <%= image_tag "https://kitt.lewagon.com/placeholder/users/ssaunier", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
+            <%= image_tag current_user.photo.key? ? current_user.photo : 'user_default.jpg', class: "avatar dropdown-toggle", id: "navbarDropdown", data: { bs_toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
             <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
               <% if current_user.ghosts.length > 0 %>
                 <%# user is a gHost %>
                 <%= link_to "My Spooks", my_spooks_path, class: "dropdown-item" %>
                 <%= link_to "My Ghosts", my_ghosts_path, class: "dropdown-item" %>
                 <%= link_to "Create a New Ghost", new_ghost_path, class: "dropdown-item" %>
-                <%= link_to "My Ghost Spooks", my_ghost_spooks_path, class: "dropdown-item" %>
+                <%= link_to "My Ghosts' Spooks", my_ghost_spooks_path, class: "dropdown-item" %>
               <% else %>
               <%# user is not a gHost %>
                 <%= link_to "My Spooks", my_spooks_path, class: "dropdown-item" %>
-                <%= link_to "Become a gHost", new_ghost_path, class: "dropdown-item" %>
+                <%= link_to "Become a Ghost Host", new_ghost_path, class: "dropdown-item" %>
               <% end %>
-              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, class: "dropdown-item" %>
+              <%= link_to "Log out", destroy_user_session_path, data: {turbo_method: :delete}, status: :see_other, class: "dropdown-item" %>
             </div>
           </li>
         <% else %>
