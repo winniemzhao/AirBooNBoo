@@ -13,11 +13,11 @@
           <% end %>
           <div class="card-spook-infos">
             <h2><%= spook.ghost.name.capitalize %></h2>
-            <p><%= spook.start_date %> - <%= spook.end_date %></p>
-            <p>Total: $<%= (spook.ghost.daily_rate * (spook.end_date - spook.start_date)).round(2) %></p>
+            <p><%= spook.start_date.strftime("%B %d") %> - <%= spook.end_date.strftime("%B %d") %></p>
+            <p>Total: <%= format('%.2f', (spook.ghost.daily_rate * (spook.end_date - spook.start_date + 1))) %></p>
             <%# TO FIX: the button encroaches on margin-bottom of the p above %>
             <p><%= link_to "More info", my_spook_path(spook.id), class:"btn-flat" %></p>
-            <p class="card-spook-status">status<%= spook.status %></p>
+            <p class="card-spook-status"><%= spook.status %></p>
           </div>
         </div>
       <% end %>

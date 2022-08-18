@@ -1,17 +1,15 @@
-<%# this needs to be styled %>
-
 <div class="container">
   <div class="row justify-content-center">
     <div class="col-6">
-      <h1 class="d-flex justify-content-center align-items-center">
+      <h1 class="d-flex justify-content-between align-items-center">
         <%= @ghost.name %>
-        <%= image_tag @ghost.photo %>
+        <%= image_tag @ghost.photo, width: 100 %>
       </h1>
       <%= simple_form_for(@ghost) do |f| %>
         <%= f.input :name, placeholder: @ghost.name %>
-        <%= f.input :spook_action, collection: ["Interactive Personality Ghost", "Funnel Ghost", "Orbs", "Poltergeist", "Mist/Fog/Whisp Ghost"], prompt: "#{@ghost.spook_action}", selected: @ghost.spook_action %>
+        <%= f.input :spook_action, collection: %w[Scare Joke Comfort Annoy Entertain Protect], prompt: "#{@ghost.spook_action}", selected: @ghost.spook_action %>
         <%= f.input :location, placeholder: @ghost.location %>
-        <%= f.input :daily_rate, placeholder: @ghost.daily_rate %>
+        <%= f.input :daily_rate, type: :number, :input_html => {value: number_with_precision(@ghost.daily_rate, precision: 2) } %>
         <%= f.input :description, placeholder: @ghost.description %>
         <%= f.input :photo, label: "Change photo", as: :file %>
         <%= f.submit "Post your Ghost", class: "btn-flat" %>

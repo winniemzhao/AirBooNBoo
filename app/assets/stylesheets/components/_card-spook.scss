@@ -6,6 +6,7 @@
   display: flex;
   align-items: center;
   border-radius: 16px;
+  position: relative;
 }
 
 .card-spook img {
@@ -31,13 +32,12 @@
 
 .card-spook .card-spook-infos {
   padding: 16px;
-  position: relative;
 }
 
 .card-spook-infos .card-spook-status {
   position: absolute;
-  left: -70px;
-  top: 30px;
+  left: 15px;
+  top: 15px;
   background-color: #f5f3f7;
   color: #1b1f3a;
   border-radius: 5px;
