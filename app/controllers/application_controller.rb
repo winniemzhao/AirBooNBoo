@@ -10,9 +10,9 @@ class ApplicationController < ActionController::Base
     devise_parameter_sanitizer.permit(:account_update, keys: %i[name description])
   end
 
-  private
+  # private
 
-  def after_sign_out_path_for(destroy_user_session_path)
-    root_path
-  end
+  # def after_sign_out_path_for()
+  #   root_path
+  # end
 end
