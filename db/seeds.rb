@@ -91,8 +91,6 @@ ghost_hard_user2.user = user_hard
 ghost_hard_user2.photo.attach(io: File.open('app/assets/images/ghosts/skull.jpg'), filename: 'skull.jpg', content_type: 'image/jpg')
 ghost_hard_user2.save!
 
-#####################3 comment the below for the demo
-
 (1..5).each do |num|
   file = URI.open("https://loremflickr.com/320/240/person")
   user = User.new(

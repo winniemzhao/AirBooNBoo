@@ -13,6 +13,23 @@
 
   <body>
     <%= render "components/navbar" %>
+    <% flash.each do |type, msg| %>
+      <% if type == "alert" %>
+        <div class="alert flash flash-danger" role="alert">
+          <%= msg %>
+          <a data-bs-dismiss="alert" aria-label="Close">
+            <i class="fas fa-times"></i>
+          </a>
+        </div>
+      <% elsif type == "notice" %>
+        <div class="alert flash flash-success" role="alert">
+          <%= msg %>
+          <a data-bs-dismiss="alert" aria-label="Close">
+            <i class="fas fa-times"></i>
+          </a>
+        </div>
+      <% end %>
+    <% end %>
     <%= yield %>
     <%= render "components/footer" %>
   </body>

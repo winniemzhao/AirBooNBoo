@@ -1,8 +1,11 @@
 .alert {
   position: fixed;
-  bottom: 16px;
-  right: 16px;
+  right: 0px;
   z-index: 1000;
+}
+
+.alert a {
+  margin-left: 16px;
 }
 
 .flash {

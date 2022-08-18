@@ -1,7 +1,8 @@
   <% @my_ghost_spooks.each do |spook| %>
+
   <p> Name:<%= spook.ghost.name %></p>
   <p>Dates:<%= spook.start_date %>to<%= spook.end_date %></p>
-  <p>Total:$<%= (spook.ghost.daily_rate * (spook.end_date - spook.start_date)).round(2) %></p>
+  <p>Total<%= number_to_currency([spook.ghost.daily_rate.to_f, spook.ghost.daily_rate * (spook.end_date - spook.start_date).to_f].max) %></p>
   <p>Status:<%= spook.status %>
   <%= link_to 'Set Status', edit_my_ghost_spook_url(spook) %>
   <% end %>
