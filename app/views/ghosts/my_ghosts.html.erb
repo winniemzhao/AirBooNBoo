@@ -11,7 +11,7 @@
       <%= " No" %>
     <% end %>
     </p>
-    <p>Location: <%= ghost.location %></p>
+    <p>Address: <%= ghost.address %></p>
     <p>Description: <%= ghost.description %></p>
     <p>Daily Rate: <%= number_to_currency(ghost.daily_rate) %></p>
     <%= link_to "Edit Ghost", edit_ghost_path(ghost) %>

@@ -26,6 +26,15 @@ class GhostsController < ApplicationController
 
   def show
     @spook = Spook.new
+
+    if @ghost.latitude && @ghost.longitude
+      # @latitude = @ghost.latitude
+      # @longitude = @ghost.longitude
+      @markers = [{
+        lat: @ghost.latitude,
+        lng: @ghost.longitude
+      }]
+    end
   end
 
   def update
@@ -50,6 +59,6 @@ class GhostsController < ApplicationController
   end
 
   def ghost_params
-    params.require(:ghost).permit(:name, :spook_action, :location, :daily_rate, :is_active, :user_id, :photo, :description)
+    params.require(:ghost).permit(:name, :spook_action, :address, :daily_rate, :is_active, :user_id, :photo, :description)
   end
 end

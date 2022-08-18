@@ -6,7 +6,7 @@
     <%# render 'total-rating' %>
     <p>
     <%# <i class="fa-solid fa-star"></i> <%= @total_rating %><%#= @ghost.reviews.length %>
-    Hosted by <%= @ghost.user.name %> · <%= @ghost.location %>
+    Hosted by <%= @ghost.user.name %> · <%= @ghost.address %>
     </p>
   </div>
   <div class="ghost-info">
@@ -19,6 +19,11 @@
         <%= render "ghosts/new_spook_form" %>
       </div>
     </div>
+  </div>
+  <div style="width: 100%; height: 400px;"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
   </div>
   <%# <div class="ghost-reviews">
     <h2>Reviews</h2>

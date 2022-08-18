@@ -30,7 +30,7 @@ user_other_hard.save!
 ghost_hard_else1 = Ghost.new(
   name: "Shades",
   spook_action: "Annoy",
-  location: "5333 Av. Casgrain Suite 102, Montréal, QC H2T 1X3",
+  address: "5333 Av. Casgrain Suite 102, Montréal, QC H2T 1X3",
   description: "A cool ghost that will show you a good time, and then murder you in your sleep.",
   daily_rate: 139
 )
@@ -41,7 +41,7 @@ ghost_hard_else1.save!
 ghost_hard_else2 = Ghost.new(
   name: "Dog",
   spook_action: "Comfort",
-  location: "3802 rue Gertrude, Montreal QC  H4G 1R5",
+  address: "3802 rue Gertrude, Montreal QC  H4G 1R5",
   description: "Aarf! Bark! Boo!",
   daily_rate: 50
 )
@@ -52,7 +52,7 @@ ghost_hard_else2.save!
 ghost_hard_else3 = Ghost.new(
   name: "Orbi",
   spook_action: "Scare",
-  location: "Collège Saint-Barthélemy en Hors-Château, 31 4000 Liège",
+  address: "Collège Saint-Barthélemy en Hors-Château, 31 4000 Liège",
   description: "Guaranteed to spook your lights out!",
   daily_rate: 100
 )
@@ -63,7 +63,7 @@ ghost_hard_else3.save!
 ghost_hard_else4 = Ghost.new(
   name: "Joker",
   spook_action: "Joke",
-  location: "1170 Chambly Rd, Longueuil, Quebec J4J 1J9",
+  address: "1170 Chambly Rd, Longueuil, Quebec J4J 1J9",
   description: "The Clown Prince of Spooks",
   daily_rate: 150
 )
@@ -74,7 +74,7 @@ ghost_hard_else4.save!
 ghost_hard_user1 = Ghost.new(
   name: "Wisp",
   spook_action: "Entertain",
-  location: "360 Saint Francois Xavier St, Montreal, Quebec H2Y 2S8",
+  address: "360 Saint Francois Xavier St, Montreal, Quebec H2Y 2S8",
   description: "Wispy willows of sorrow and suffering",
   daily_rate: 200)
 ghost_hard_user1.user = user_hard
@@ -84,7 +84,7 @@ ghost_hard_user1.save!
 ghost_hard_user2 = Ghost.new(
   name: "Skull",
   spook_action: "Protect",
-  location: "Hell",
+  address: "Hell",
   description: "The freshest ghost on the market, bones still attached!",
   daily_rate: 250)
 ghost_hard_user2.user = user_hard
@@ -110,7 +110,7 @@ puts "Creating ghosts..."
   ghost = Ghost.new(
     name: Faker::Movies::Ghostbusters.character,
     spook_action: %w[Annoy Comfort Scare Protect Entertain Joke].sample,
-    location: Faker::Address.full_address,
+    address: Faker::Address.full_address,
     description: Faker::Lorem.paragraph,
     daily_rate: Faker::Number.decimal(l_digits: 2)
   )
