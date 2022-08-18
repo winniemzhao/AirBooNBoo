@@ -3,8 +3,8 @@
     <div class="col-4">
     <h2>Edit your Spook </h2>
       <%= simple_form_for(@spook, url: my_spook_path) do |f| %>
-        <%= f.date_select :start_date, as: :date  %>
-        <%= f.date_select :end_date, as: :date  %>
+        <%= f.input :start_date, as: :date, html5: true %>
+        <%= f.input :end_date, as: :date, html5: true %>
         <%= f.submit 'Edit my Spook!', class: 'btn-flat' %>
       <% end %>
     </div>
