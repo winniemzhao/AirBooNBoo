@@ -13,7 +13,7 @@
         <div>
           <h2><%= link_to ghost.name, ghost_path(ghost) %></h2>
           <p><%= ghost.description %></p>
-          <h2 class="card-ghost-pricing">$ <%= ghost.daily_rate %> night</h2>
+          <h2 class="card-ghost-pricing">$ <%= format('%.2f', ghost.daily_rate) %> per night</h2>
 
         </div>
         <p><i class="fa-solid fa-ghost"></i> <%= ghost.spook_action %></p>

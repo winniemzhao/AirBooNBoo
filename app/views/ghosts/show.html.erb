@@ -6,7 +6,7 @@
     </div>
     <% render 'total-rating' %>
     <p>
-      <i class="fa-solid fa-star"></i> <%= @total_rating %> · <%= @ghost.reviews.length %> Reviews · <%= @ghost.location.capitalize %> · Hosted by <%= @ghost.user.name %>
+      <i class="fa-solid fa-star"></i> <%= @total_rating %> · <%= @ghost.reviews.length %> Reviews · <%= @ghost.location %> · Hosted by <%= @ghost.user.name %>
     </p>
 
   </div>
@@ -15,6 +15,7 @@
     <div class="ghost-details">
       <h4><i class="fa-solid fa-ghost"></i> <%= @ghost.spook_action %></h4>
       <p><%= @ghost.description %></p>
+      <p><%= format('%.2f', @ghost.daily_rate) %> per night</p><br>
       <div class="new-spook-form">
         <%# *Reserve this Ghost Form to be put here - temp link here: %>
         <%= link_to "Book This Ghost", new_ghost_spook_path(@ghost), class:"btn-flat" %>
