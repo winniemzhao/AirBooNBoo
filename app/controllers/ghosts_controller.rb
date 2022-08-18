@@ -4,6 +4,14 @@ class GhostsController < ApplicationController
 
   def index
     @ghosts = Ghost.all
+    @markers = @ghosts.map do |ghost|
+      {
+        lat: ghost.latitude,
+        lng: ghost.longitude,
+        info_window: render_to_string(partial: "info_window_index", locals: {ghost: ghost}),
+        image_url: helpers.asset_url("boo-invert.png")
+      }
+    end
   end
 
   def create
