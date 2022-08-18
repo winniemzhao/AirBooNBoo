@@ -1,3 +1,4 @@
+<div class="container w-50">
 <h2>Sign up</h2>
 
 <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name), data: {turbo: false}) do |f| %>
@@ -26,9 +27,9 @@
     <%= f.input :photo, label: "Upload a photo", as: :file %>
   </div>
 
-  <div class="form-actions">
-    <%= f.button :submit, "Sign up" %>
+  <div class="form-actions mb-2">
+    <%= f.button :submit, "Sign up", class:"btn-flat" %>
   </div>
 <% end %>
-
 <%= render "devise/shared/links" %>
+</div>
