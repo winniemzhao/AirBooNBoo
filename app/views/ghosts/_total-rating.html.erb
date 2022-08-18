@@ -1,4 +1,4 @@
-<% sum = 0 %>
+<%# <% sum = 0 %>
 
 <% @ghost.reviews.each do |review| %>
   <% sum += review.rating %>
@@ -8,4 +8,4 @@
   <% @total_rating = sum / @ghost.reviews.length %>
 <% else %>
   <% @total_rating = 0 %>
-<% end %>
+<% end %> %>

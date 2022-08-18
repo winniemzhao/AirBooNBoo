@@ -3,7 +3,11 @@
     <div class="col-6">
       <h1 class="d-flex justify-content-between align-items-center">
         <%= @ghost.name %>
-        <%= image_tag @ghost.photo, width: 100 %>
+        <% if @ghost.photo.key? %>
+          <%= image_tag @ghost.photo, width: 100 %>
+        <% else %>
+          <%= image_tag "ghost_default.jpg", width: 100 %>
+        <% end %>
       </h1>
       <%= simple_form_for(@ghost) do |f| %>
         <%= f.input :name, placeholder: @ghost.name %>

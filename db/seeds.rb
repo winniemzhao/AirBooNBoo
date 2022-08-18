@@ -132,15 +132,15 @@ puts "Creating spooky spooks..."
   spook.save!
 end
 
-puts "Creating one or two reviews..."
+# puts "Creating one or two reviews..."
 
-rand(1..2).times do
-  review = Review.new(
-    rating: rand(1..10),
-    comment: Faker::Lorem.sentence,
-  )
-  review.spook = [Spook.first, Spook.last].sample
-  review.save!
-end
+# rand(1..2).times do
+#   review = Review.new(
+#     rating: rand(1..10),
+#     comment: Faker::Lorem.sentence,
+#   )
+#   review.spook = [Spook.first, Spook.last].sample
+#   review.save!
+# end
 
-puts "👻"
+puts "👻👻👻"
