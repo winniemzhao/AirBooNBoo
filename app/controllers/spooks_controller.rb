@@ -24,14 +24,21 @@ class SpooksController < ApplicationController
   end
 
   def create
-    @spook = Spook.new(spook_params)
-    @spook.ghost = @ghost
-    @spook.user = current_user
-    if @spook.save
-      redirect_to my_spook_path(@spook)
+    if @ghost.user_id == current_user.id
+      # render "new"
+      flash.alert = "You cannot book your own ghost."
     else
-      render :new, status: 422
+      @spook = Spook.new(spook_params)
+      @spook.ghost = @ghost
+      @spook.user = current_user
+      if @spook.save
+        redirect_to my_spook_path(@spook)
+      else
+        render :new, status: 422
+      end
     end
+
+
   end
 
   def edit
