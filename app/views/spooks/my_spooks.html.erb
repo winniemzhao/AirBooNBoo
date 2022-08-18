@@ -4,7 +4,7 @@
   <div class="my-spooks">
     <% @spooks.each do |spook| %>
       <%= link_to my_spook_path(spook) do %>
-        <div class="card-spook mb-5 mt-5">
+        <div class="card-spook">
           <% if spook.ghost.photo.key? %>
             <%= cl_image_tag spook.ghost.photo.key %>
           <% else %>
@@ -14,8 +14,7 @@
             <h2><%= spook.ghost.name.capitalize %></h2>
             <p><%= spook.start_date.strftime("%B %d") %> - <%= spook.end_date.strftime("%B %d") %></p>
             <p>Total: <%= format('%.2f', (spook.ghost.daily_rate * (spook.end_date - spook.start_date + 1))) %></p>
-            <%# TO FIX: the button encroaches on margin-bottom of the p above %>
-            <p><%= link_to "More info", my_spook_path(spook.id), class:"btn-flat" %></p>
+            <button class="btn-flat remove-btn-border">More info</button>
             <p class="card-spook-status"><%= spook.status %></p>
           </div>
         </div>
