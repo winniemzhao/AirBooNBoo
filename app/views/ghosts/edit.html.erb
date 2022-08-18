@@ -12,8 +12,10 @@
         <%= f.input :daily_rate, type: :number, :input_html => {value: number_with_precision(@ghost.daily_rate, precision: 2) } %>
         <%= f.input :description, placeholder: @ghost.description %>
         <%= f.input :photo, label: "Change photo", as: :file %>
+        <%= f.input :is_active, :as => :select, :collection => [['No',false],['Yes',true]], :include_blank => false, :label => "Active" %>
         <%= f.submit "Post your Ghost", class: "btn-flat" %>
       <% end %>
     </div>
   </div>
+     <%= link_to "Go Back", my_ghosts_path(@ghost) %>
 </div>
