@@ -31,14 +31,14 @@
 }
 
 .card-spook .card-spook-infos {
-  padding: 16px;
+  padding: 24px;
 }
 
 .card-spook-infos .card-spook-status {
   position: absolute;
   left: 15px;
   top: 15px;
-  background-color: #f5f3f7;
+  background-color: $ghost;
   color: #1b1f3a;
   border-radius: 5px;
   padding: 1px 5px;
