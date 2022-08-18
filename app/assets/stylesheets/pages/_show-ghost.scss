@@ -21,11 +21,11 @@
   margin-bottom: 32px;
   padding-bottom: 32px;
   border: 1px solid red;
-  // border-bottom: 1px solid $carmine;
+  border-bottom: 1px solid $carmine;
 }
 
 .ghost-info img {
-  width: calc(50% - 8px);
+  width: calc(50% - 16px);
   border: 1px solid black;
   border-radius: 16px;
   object-fit: contain;
@@ -33,8 +33,7 @@
 
 .ghost-details {
   width: calc(50% - 8px);
-  margin-left: 16px;
-  padding-left: 16px;
+  margin-left: 32px;
 }
 
 .ghost-details h4 {

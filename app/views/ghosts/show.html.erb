@@ -17,6 +17,11 @@
       <p>$<%= format('%.2f', @ghost.daily_rate) %> per night</p><br>
       <div class="new-spook-form">
         <%= render "new_spook_form" %>
+        <% flash.each do |type, msg| %>
+          <div>
+            <%= msg %>
+          </div>
+        <% end %>
       </div>
     </div>
   </div>

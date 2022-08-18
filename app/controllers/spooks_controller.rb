@@ -26,13 +26,6 @@ class SpooksController < ApplicationController
   def create
     if @ghost.user_id == current_user.id
       flash.alert = "You cannot book your own ghost."
-
-      # <% flash.each do |type, msg| %>
-      #   <div>
-      #     <%= msg %>
-      #   </div>
-      # <% end %>
-
     else
       @spook = Spook.new(spook_params)
       @spook.ghost = @ghost
@@ -43,8 +36,6 @@ class SpooksController < ApplicationController
         render :new, status: 422
       end
     end
-
-
   end
 
   def edit
