@@ -25,6 +25,7 @@ class GhostsController < ApplicationController
   end
 
   def show
+    @spook = Spook.new
   end
 
   def update
