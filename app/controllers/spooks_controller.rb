@@ -44,7 +44,7 @@ class SpooksController < ApplicationController
       @spook.ghost = @ghost
       @spook.user = current_user
       if @spook.save
-        redirect_to my_spook_path(@spook)
+        redirect_to my_spooks_path
       else
         render "/ghosts/show", status: 422
       end
