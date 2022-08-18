@@ -1,4 +1,4 @@
-<h1>Your Spook </h1>
+<h1>Your Spook</h1>
   <p>
     <strong>Name:</strong>
     <%= @spook.ghost.name %>
@@ -12,7 +12,7 @@
   </p>
 
   <p> <strong>Total: </strong>
-   $<%= format('%.2f', (@spook.ghost.daily_rate * (@spook.end_date - @spook.start_date))) %>
+    <%= number_to_currency(@spook.ghost.daily_rate * (@spook.end_date - @spook.start_date)) %>
   </p>
 
   <p> <strong>Status: </strong>
