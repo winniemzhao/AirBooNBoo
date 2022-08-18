@@ -2,25 +2,28 @@
   <h1>My Spooks</h1>
 
   <div class="my-spooks">
-    <% @spooks.each do |spook| %>
-      <%= link_to my_spook_path(spook) do %>
-        <div class="card-spook mb-5 mt-5">
-          <% if spook.ghost.photo.key? %>
-            <%= cl_image_tag spook.ghost.photo.key %>
-          <% else %>
-            <img src="https://images.unsplash.com/photo-1583680599407-f73ab374fff4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" />
+
+      <% @spooks.each do |spook| %>
+
+          <%= link_to my_spook_path(spook) do %>
+            <div class="card-spook">
+              <% if spook.ghost.photo.key? %>
+                <%= cl_image_tag spook.ghost.photo.key %>
+              <% else %>
+                <img src="https://images.unsplash.com/photo-1583680599407-f73ab374fff4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" />
+              <% end %>
+              <div class="card-spook-infos">
+                <h2><%= spook.ghost.name.capitalize %></h2>
+                <p><%= spook.start_date.strftime("%B %d") %> - <%= spook.end_date.strftime("%B %d") %></p>
+                <p>Total: $<%= format('%.2f', (spook.ghost.daily_rate * (spook.end_date - spook.start_date + 1))) %></p>
+                <button class="btn-flat remove-btn-border">More info</button>
+                <p class="card-spook-status"><%= spook.status %></p>
+              </div>
+            </div>
           <% end %>
-          <div class="card-spook-infos">
-            <h2><%= spook.ghost.name.capitalize %></h2>
-            <p><%= spook.start_date.strftime("%B %d") %> - <%= spook.end_date.strftime("%B %d") %></p>
-            <p>Total: <%= format('%.2f', (spook.ghost.daily_rate * (spook.end_date - spook.start_date + 1))) %></p>
-            <%# TO FIX: the button encroaches on margin-bottom of the p above %>
-            <p><%= link_to "More info", my_spook_path(spook.id), class:"btn-flat" %></p>
-            <p class="card-spook-status"><%= spook.status %></p>
-          </div>
-        </div>
+
       <% end %>
-    <% end %>
+
   </div>
   <%= link_to "Find a Ghost", ghosts_path, class:"btn-flat" %>
 </div>

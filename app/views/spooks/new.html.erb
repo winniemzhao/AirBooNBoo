@@ -1,11 +1,16 @@
 <div class="wrapper">
+  <% flash.each do |type, msg| %>
+    <div>
+      <%= msg %>
+    </div>
+  <% end %>
   <div class="row justify-content-center form-row">
-    <div class="col-4 card-form">
-    <h1>Reserve <%= @ghost.name.capitalize %></h1>
+    <div class="col-6 card-form">
+    <h1>Spook with <%= @ghost.name.capitalize %></h1>
       <%= simple_form_for([@ghost, @spook]) do |f| %>
         <%= f.input :start_date, as: :date, html5: true %>
         <%= f.input :end_date, as: :date, html5: true %>
-        <%= f.submit 'Reserve my Spook!', class: 'btn-flat' %>
+        <%= f.submit 'Reserve my Spook!', class: 'btn-flat remove-btn-border' %>
       <% end %>
     </div>
 

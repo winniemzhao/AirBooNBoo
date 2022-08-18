@@ -1,7 +1,6 @@
 class GhostsController < ApplicationController
   before_action :set_ghost, only: %i[show edit update destroy]
-  skip_before_action :authenticate_user!, only: :index
-
+  skip_before_action :authenticate_user!, only: %i[index show]
 
   def index
     @ghosts = Ghost.all
