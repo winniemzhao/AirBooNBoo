@@ -1,5 +1,20 @@
 .my-spooks {
-  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-gap: 32px;
+  margin: 32px 0;
+}
+
+@media(max-width: 992px) {
+  .my-spooks {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media(max-width: 768px) {
+  .my-spooks {
+    grid-template-columns: 1fr;
+  }
 }
 
 .card-spook {
@@ -15,27 +30,28 @@
 
 .card-spook img {
   height: 100%;
-  width: 240px;
+  width: 50%;
   object-fit: cover;
 }
 
 .card-spook h2 {
   font-weight: bold;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
 }
 
 .card-spook p {
   line-height: 1.4;
   opacity: .7;
-  margin-bottom: 16px;
+  margin-bottom: 8px;
 }
 
 .card-spook p:first-of-type {
-  font-size: 18px;
+  font-size: 20px;
+  font-weight: 600;
 }
 
 .card-spook .card-spook-infos {
-  padding: 24px;
+  margin: 24px;
 }
 
 .card-spook-infos .card-spook-status {
