@@ -6,8 +6,8 @@ class Spook < ApplicationRecord
   validates :start_date, :end_date, presence: true
 
   enum status: {
-    pending: 0,
-    accepted: 1,
-    declined: 2
+    Pending: 0,
+    Accepted: 1,
+    Declined: 2
   }
 end

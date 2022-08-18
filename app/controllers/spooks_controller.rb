@@ -1,5 +1,5 @@
 class SpooksController < ApplicationController
-  before_action :set_spook, only: [:destroy, :show, :edit, :update]
+  before_action :set_spook, only: [:destroy, :show, :edit, :update, :edit_ghost_spooks]
   before_action :set_ghost, only: [:new, :create]
 
   def my_spooks
@@ -12,6 +12,9 @@ class SpooksController < ApplicationController
     @ghosts.each do |ghost|
       @my_ghost_spooks = Spook.where(ghost_id: ghost.id)
     end
+  end
+
+  def edit_ghost_spooks
   end
 
   def show
