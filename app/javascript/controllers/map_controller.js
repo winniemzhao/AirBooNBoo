@@ -22,10 +22,22 @@ export default class extends Controller {
 
   #addMarkerToMap() {
     this.markersValue.forEach((marker) => {
-      new mapboxgl.Marker()
-      .setLngLat([ marker.lng, marker.lat ])
-      .addTo(this.map)
-    })
+      const popup = new mapboxgl.Popup().setHTML(marker.info_window)
+
+      const customMarker = document.createElement("div")
+      customMarker.className = "marker"
+      customMarker.style.backgroundImage = `url('${marker.image_url}')`
+      customMarker.style.backgroundSize = "contain"
+      customMarker.style.width = "50px"
+      customMarker.style.height = "50px"
+      customMarker.style.borderRadius = "50%"
+      customMarker.style.border = "5px solid white"
+
+      new mapboxgl.Marker(customMarker)
+        .setLngLat([ marker.lng, marker.lat ])
+        .setPopup(popup)
+        .addTo(this.map)
+    });
   }
 
   #fitMapToMarker() {

@@ -28,11 +28,11 @@ class GhostsController < ApplicationController
     @spook = Spook.new
 
     if @ghost.latitude && @ghost.longitude
-      # @latitude = @ghost.latitude
-      # @longitude = @ghost.longitude
       @markers = [{
         lat: @ghost.latitude,
-        lng: @ghost.longitude
+        lng: @ghost.longitude,
+        info_window: render_to_string(partial: "info_window", locals: {ghost: @ghost}),
+        image_url: helpers.asset_url("boo-invert.png")
       }]
     end
   end
