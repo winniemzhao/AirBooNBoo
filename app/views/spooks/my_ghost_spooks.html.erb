@@ -1,8 +1,25 @@
-  <% @my_ghost_spooks.each do |spook| %>
+<div class="wrapper">
+  <h1>My Ghosts Reservations</h1>
 
-  <p> Name:<%= spook.ghost.name %></p>
-  <p>Dates:<%= spook.start_date %>to<%= spook.end_date %></p>
-  <p>Total<%= number_to_currency([spook.ghost.daily_rate.to_f, spook.ghost.daily_rate * (spook.end_date - spook.start_date).to_f].max) %></p>
-  <p>Status:<%= spook.status %>
-  <%= link_to 'Set Status', edit_my_ghost_spook_url(spook) %>
-  <% end %>
+  <div class="my-spooks">
+
+      <% @my_ghost_spooks.each do |spook| %>
+            <div class="card-spook">
+              <% if spook.ghost.photo.key? %>
+                <%= cl_image_tag spook.ghost.photo.key %>
+              <% else %>
+                <img src="https://images.unsplash.com/photo-1583680599407-f73ab374fff4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" />
+              <% end %>
+              <div class="card-spook-infos">
+                <h2><%= spook.ghost.name.capitalize %></h2>
+                <p><%= spook.start_date.strftime("%B %d") %> - <%= spook.end_date.strftime("%B %d") %></p>
+                <p>Total: <%= number_to_currency([spook.ghost.daily_rate.to_f, spook.ghost.daily_rate * (spook.end_date - spook.start_date).to_f].max) %></p>
+                <p class="card-spook-status"><%= spook.status %></p>
+                <%= link_to 'Set Status', edit_my_ghost_spook_url(spook), class:"btn-flat" %>
+              </div>
+
+            </div>
+      <% end %>
+
+  </div>
+</div>
