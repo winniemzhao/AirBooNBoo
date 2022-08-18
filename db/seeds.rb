@@ -111,8 +111,8 @@ puts "Creating ghosts..."
   file = URI.open("https://loremflickr.com/320/240/ghost")
   ghost = Ghost.new(
     name: Faker::Movies::Ghostbusters.character,
-    spook_action: %w[interactive ectoplasm poltergeist orb funnel].sample,
-    location: %w[Manchester Paris Toronto].sample,
+    spook_action: %w[Annoy Comfort Scare Protect Entertain Joke].sample,
+    location: Faker::Address.full_address,
     description: Faker::Lorem.paragraph,
     daily_rate: Faker::Number.decimal(l_digits: 2)
   )
