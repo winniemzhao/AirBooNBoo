@@ -4,8 +4,6 @@
   <div class="my-spooks">
 
       <% @spooks.each do |spook| %>
-
-          <%= link_to my_spook_path(spook) do %>
             <div class="card-spook">
               <% if spook.ghost.photo.key? %>
                 <%= cl_image_tag spook.ghost.photo.key %>
@@ -16,14 +14,24 @@
                 <h2><%= spook.ghost.name.capitalize %></h2>
                 <p><%= spook.start_date.strftime("%B %d") %> - <%= spook.end_date.strftime("%B %d") %></p>
                 <p>Total: <%= number_to_currency([spook.ghost.daily_rate.to_f, spook.ghost.daily_rate * (spook.end_date - spook.start_date).to_f].max) %></p>
-                <button class="btn-flat remove-btn-border">More info</button>
                 <p class="card-spook-status"><%= spook.status %></p>
+                <%= link_to my_spook_path(spook), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this reservation?" } do %>
+                <i class="fa-solid fa-trash" style="padding-right: 10px;"></i>
+               <% end %>
+                <%= link_to edit_my_spook_path(spook) do %>
+                <i class="fas fa-edit" style="padding-left: 10px;"></i>
+                 <% end %>
               </div>
             </div>
-          <% end %>
-
       <% end %>
 
   </div>
   <%= link_to "Find a Ghost", ghosts_path, class:"btn-flat" %>
 </div>
+
+
+<%# <div>
+  <%= link_to "Edit Reservation Dates", edit_my_spook_path(@spook) %>
+  <%# <%= link_to "Delete this Reservation", my_spook_path(@spook), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this reservation?" } %>
+  <%# <%= link_to "Back to Reservation", my_spooks_path %>
+<%# </div> %>

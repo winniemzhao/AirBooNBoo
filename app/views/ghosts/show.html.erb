@@ -10,7 +10,11 @@
     </p>
   </div>
   <div class="ghost-info">
-    <%= cl_image_tag @ghost.photo.key, :alt=>"ghost profile picture" %>
+    <% if @ghost.photo.key? %>
+      <%= cl_image_tag @ghost.photo.key, :alt=>"ghost profile picture" %>
+    <% else %>
+      <%= image_tag "ghost_default.jpg", :alt=>"ghost profile picture" %>
+    <% end %>
     <div class="ghost-details">
       <h4><i class="fa-solid fa-ghost"></i> <%= @ghost.spook_action %></h4>
       <p><%= @ghost.description %></p>
