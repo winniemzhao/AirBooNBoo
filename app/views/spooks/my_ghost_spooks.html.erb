@@ -1,17 +1,8 @@
   <% @my_ghost_spooks.each do |spook| %>
-  <p> Name:
-    <%= spook.ghost.name %>
-  </p>
-  <p>
-    <strong>Dates:</strong>
-    <%= spook.start_date %>
-    to
-    <%= spook.end_date %>
-  </p>
-  <p> <strong>Total: </strong>
-    <%= number_to_currency([spook.ghost.daily_rate.to_f, spook.ghost.daily_rate * (spook.end_date - spook.start_date).to_f].max) %>
-  </p>
-  <p> <strong>Status: </strong>
-  <%# if status = 0 pending THEN display a button to change the confirmation status %>
-    <%= spook.status %>
+
+  <p> Name:<%= spook.ghost.name %></p>
+  <p>Dates:<%= spook.start_date %>to<%= spook.end_date %></p>
+  <p>Total<%= number_to_currency([spook.ghost.daily_rate.to_f, spook.ghost.daily_rate * (spook.end_date - spook.start_date).to_f].max) %></p>
+  <p>Status:<%= spook.status %>
+  <%= link_to 'Set Status', edit_my_ghost_spook_url(spook) %>
   <% end %>

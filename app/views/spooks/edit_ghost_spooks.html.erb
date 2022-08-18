@@ -1,0 +1,4 @@
+  <%= simple_form_for(@spook, url: update_my_ghost_spooks_path ) do |f| %>
+  <%= f.input :status, collection: Spook.statuses.keys %>
+  <%= f.submit 'Update Status', class: 'btn-flat remove-btn-border' %>
+  <% end %>

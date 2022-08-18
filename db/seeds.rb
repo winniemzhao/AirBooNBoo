@@ -1,7 +1,7 @@
 require 'faker'
 require 'open-uri'
 
-# puts "Destroying previous instances (comment this out if you want)"
+puts "Destroying previous instances (comment this out if you want)"
 
 Review.destroy_all
 Spook.destroy_all
@@ -109,8 +109,8 @@ puts "Creating ghosts..."
   file = URI.open("https://loremflickr.com/320/240/ghost")
   ghost = Ghost.new(
     name: Faker::Movies::Ghostbusters.character,
-    spook_action: %w[interactive ectoplasm poltergeist orb funnel].sample,
-    location: %w[Manchester Paris Toronto].sample,
+    spook_action: %w[Annoy Comfort Scare Protect Entertain Joke].sample,
+    location: Faker::Address.full_address,
     description: Faker::Lorem.paragraph,
     daily_rate: Faker::Number.decimal(l_digits: 2)
   )
@@ -124,7 +124,7 @@ puts "Creating spooky spooks..."
 5.times do
   spook = Spook.new(
     start_date: Faker::Date.between(from: '2014-09-23', to: '2014-09-25'),
-    end_date: Faker::Date.between(from: '2014-09-26', to: '2014-09-28'),
+    end_date: Faker::Date.between(from: '2014-10-01', to: '2014-10-03'),
     status: rand(0..2)
   )
   spook.ghost = [Ghost.first, Ghost.last].sample
