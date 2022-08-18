@@ -6,23 +6,23 @@
 
   <p>
     <strong>Dates:</strong>
-    <%= @spook.start_date %>
+    <%= @spook.start_date.strftime('%B %d, %Y') %>
     to
-    <%= @spook.end_date %>
+    <%= @spook.end_date.strftime('%B %d, %Y') %>
   </p>
 
-  <p> <strong>Total: </strong>
-    <%= number_to_currency(@spook.ghost.daily_rate * (@spook.end_date - @spook.start_date)) %>
+  <p><strong>Total: </strong>
+    <%= number_to_currency([@spook.ghost.daily_rate, (@spook.ghost.daily_rate * (@spook.end_date - @spook.start_date))].max) %>
   </p>
 
   <p> <strong>Status: </strong>
-   <%= @spook.status%>
+   <%= @spook.status %>
   </p>
 
 </div>
 
 <div>
-  <%= link_to "Edit spook dates", edit_my_spook_path(@spook) %>  |
-  <%= link_to "Delete this spook", my_spook_path(@spook), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this spook?" } %>  |
-  <%= link_to "Back to spooks", my_spooks_path %>
+  <%= link_to "Edit Spook Dates", edit_my_spook_path(@spook) %>  |
+  <%= link_to "Delete this Spook", my_spook_path(@spook), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this spook?" } %>  |
+  <%= link_to "Back to Spooks", my_spooks_path %>
 </div>

@@ -2,13 +2,12 @@
   <div class="ghost-title">
     <div>
       <h1><%= @ghost.name.capitalize %> </h1>
-
     </div>
-    <% render 'total-rating' %>
+    <%# render 'total-rating' %>
     <p>
-      <i class="fa-solid fa-star"></i> <%= @total_rating %> · <%= @ghost.reviews.length %> Reviews · <%= @ghost.location %> · Hosted by <%= @ghost.user.name %>
+    <%# <i class="fa-solid fa-star"></i> <%= @total_rating %><%#= @ghost.reviews.length %>
+    Hosted by <%= @ghost.user.name %> · <%= @ghost.location %>
     </p>
-
   </div>
   <div class="ghost-info">
     <%= cl_image_tag @ghost.photo.key, :alt=>"ghost profile picture" %>
@@ -22,12 +21,12 @@
       </div>
     </div>
   </div>
-  <div class="ghost-reviews">
+  <%# <div class="ghost-reviews">
     <h2>Reviews</h2>
     <% if @ghost.reviews.length > 0 %>
-      <% render 'reviews' %>
-    <% else %>
-      <p>BoOoOoOoo...this ghost does not have any reviews yet...</p>
-    <% end %>
-  </div>
+      <%# render 'reviews' %>
+    <%# else %>
+      <%# <p>BoOoOoOoo...this ghost does not have any reviews yet...</p> %>
+    <%# end %>
+  <%# </div> %>
 </div>
