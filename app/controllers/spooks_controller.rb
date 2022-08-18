@@ -1,5 +1,5 @@
 class SpooksController < ApplicationController
-  before_action :set_spook, only: [:destroy, :show, :edit, :update, :edit_ghost_spooks]
+  before_action :set_spook, only: [:destroy, :show, :edit, :update, :edit_ghost_spooks, :update_ghost_spooks]
   before_action :set_ghost, only: [:new, :create]
 
   def my_spooks
@@ -15,6 +15,14 @@ class SpooksController < ApplicationController
   end
 
   def edit_ghost_spooks
+  end
+
+  def update_ghost_spooks
+    if @spook.update!(spook_params)
+      redirect_to my_ghost_spooks_path, notice: "Your ghost's spook was successfully updated."
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def show
