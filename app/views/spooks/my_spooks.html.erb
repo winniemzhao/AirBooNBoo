@@ -15,7 +15,7 @@
               <div class="card-spook-infos">
                 <h2><%= spook.ghost.name.capitalize %></h2>
                 <p><%= spook.start_date.strftime("%B %d") %> - <%= spook.end_date.strftime("%B %d") %></p>
-                <p>Total: $<%= format('%.2f', (spook.ghost.daily_rate * (spook.end_date - spook.start_date + 1))) %></p>
+                <p>Total: <%= number_to_currency([spook.ghost.daily_rate.to_f, spook.ghost.daily_rate * (spook.end_date - spook.start_date).to_f].max) %></p>
                 <button class="btn-flat remove-btn-border">More info</button>
                 <p class="card-spook-status"><%= spook.status %></p>
               </div>

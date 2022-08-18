@@ -9,7 +9,7 @@
     <%= spook.end_date %>
   </p>
   <p> <strong>Total: </strong>
-   $<%= (spook.ghost.daily_rate * (spook.end_date - spook.start_date)).round(2) %>
+    <%= number_to_currency([spook.ghost.daily_rate.to_f, spook.ghost.daily_rate * (spook.end_date - spook.start_date).to_f].max) %>
   </p>
   <p> <strong>Status: </strong>
   <%# if status = 0 pending THEN display a button to change the confirmation status %>
