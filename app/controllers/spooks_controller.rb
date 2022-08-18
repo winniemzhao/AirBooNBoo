@@ -25,7 +25,9 @@ class SpooksController < ApplicationController
 
   def create
     if @ghost.user_id == current_user.id
-      flash.alert = "You cannot book your own ghost."
+      flash[:alert] = "You cannot book your own ghost."
+      @spook = Spook.new
+      render "ghosts/show", status: 422
     else
       @spook = Spook.new(spook_params)
       @spook.ghost = @ghost
@@ -33,9 +35,10 @@ class SpooksController < ApplicationController
       if @spook.save
         redirect_to my_spook_path(@spook)
       else
-        render :new, status: 422
+        render "/ghosts/show", status: 422
       end
     end
+
   end
 
   def edit
