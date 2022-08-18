@@ -1,5 +1,5 @@
 class SpooksController < ApplicationController
-  before_action :set_spook, only: [:destroy, :show, :edit, :update]
+  before_action :set_spook, only: [:destroy, :show, :edit, :update, :edit_ghost_spooks, :update_ghost_spooks]
   before_action :set_ghost, only: [:new, :create]
 
   def my_spooks
@@ -14,6 +14,17 @@ class SpooksController < ApplicationController
     end
   end
 
+  def edit_ghost_spooks
+  end
+
+  def update_ghost_spooks
+    if @spook.update!(spook_params)
+      redirect_to my_ghost_spooks_path, notice: "Your ghost's spook was successfully updated."
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
+
   def show
     # As a user, I can see all the ghosts that I've rented
   end
@@ -24,14 +35,21 @@ class SpooksController < ApplicationController
   end
 
   def create
-    @spook = Spook.new(spook_params)
-    @spook.ghost = @ghost
-    @spook.user = current_user
-    if @spook.save
-      redirect_to my_spook_path(@spook)
+    if @ghost.user_id == current_user.id
+      flash[:alert] = "You cannot book your own ghost."
+      @spook = Spook.new
+      render "ghosts/show", status: 422
     else
-      render :new, status: 422
+      @spook = Spook.new(spook_params)
+      @spook.ghost = @ghost
+      @spook.user = current_user
+      if @spook.save
+        redirect_to my_spook_path(@spook)
+      else
+        render "/ghosts/show", status: 422
+      end
     end
+
   end
 
   def edit
