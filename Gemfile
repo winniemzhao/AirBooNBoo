@@ -83,3 +83,5 @@ end
 gem "annotate"
 
 gem "cloudinary"
+
+gem "geocoder"
