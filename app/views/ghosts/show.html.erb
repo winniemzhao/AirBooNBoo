@@ -14,7 +14,7 @@
     <div class="ghost-details">
       <h4><i class="fa-solid fa-ghost"></i> <%= @ghost.spook_action %></h4>
       <p><%= @ghost.description %></p>
-      <p>$<%= format('%.2f', @ghost.daily_rate) %> per night</p><br>
+      <p><%= number_to_currency(@ghost.daily_rate) %> per night</p><br>
       <div class="new-spook-form">
         <%= render "ghosts/new_spook_form" %>
 

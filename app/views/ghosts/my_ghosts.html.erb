@@ -13,7 +13,7 @@
     </p>
     <p>Location: <%= ghost.location %></p>
     <p>Description: <%= ghost.description %></p>
-    <p>Daily Rate: <%= format('%.2f', ghost.daily_rate) %></p>
+    <p>Daily Rate: <%= number_to_currency(ghost.daily_rate) %></p>
     <%= link_to "Edit Ghost", edit_ghost_path(ghost) %>
     <%= link_to "Delete Ghost", ghost_path(ghost), data: { turbo_method: 'delete', turbo_confirm: "Are you sure you want to delete #{ghost.name.capitalize}?"} %>
   </div>
