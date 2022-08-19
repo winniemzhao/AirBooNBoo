@@ -25,7 +25,7 @@
       <p><%= @ghost.description %></p>
       <p class="card-ghost-pricing"><span><%= number_to_currency(@ghost.daily_rate) %></span> / night</p><br>
       <div class="new-spook-form">
-      <% if @ghost.user_id != current_user.id %>
+      <% unless current_user && @ghost.user_id == current_user.id %>
         <%= render "ghosts/new_spook_form" %>
         <% end %>
       </div>
