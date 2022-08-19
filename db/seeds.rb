@@ -1,30 +1,29 @@
 require 'faker'
 require 'open-uri'
 
-puts "Destroying previous instances (comment this out if you want)"
+puts "Destroying previous instances"
 
-Review.destroy_all
 Spook.destroy_all
 Ghost.destroy_all
 User.destroy_all
 
 # hardcoding
-user_hard = User.new(
-  name: "Mido",
-  description: "Hard to scare practical joker",
-  email: "midois@asmidodoes.com",
-  password: "midois"
+user1 = User.new(
+  name: "Michelangelo",
+  description: "I love ghosts and other phantomly stuff",
+  email: "ghost@ghost.ghost",
+  password: "ghosts"
 )
 user_hard.photo.attach(io: File.open('app/assets/images/users/mido.jpg'), filename: 'mido.jpg', content_type: 'image/jpg')
 user_hard.save!
 
-user_other_hard = User.new(
-  name: "Mike",
-  description: "A trickster that has learned to monetize his dead family and friends",
-  email: "wales@wales.wales",
-  password: "superior"
+user2 = User.new(
+  name: "Winifred",
+  description: "I'm haunting you in your dreams",
+  email: "a@a.a",
+  password: "aaaaaa"
 )
-user_other_hard.photo.attach(io: File.open('app/assets/images/users/mike.jpg'), filename: 'mike.jpg', content_type: 'image/jpg')
+user_other_hard.photo.attach(io: File.open('app/assets/images/users/mike.jpg'), filename: 'sarah.jpg', content_type: 'image/jpg')
 user_other_hard.save!
 
 ghost_hard_else1 = Ghost.new(
