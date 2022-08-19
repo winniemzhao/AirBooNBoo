@@ -1,5 +1,5 @@
 <div class="wrapper">
-  <h1>My Ghosts Reservations</h1>
+  <h1>My Ghosts' Reservations</h1>
   <div class="my-spooks">
     <% @my_ghost_spooks.each do |spook| %>
       <% if spook.status == 'Pending' %>
@@ -7,7 +7,7 @@
           <% if spook.ghost.photo.key? %>
             <%= cl_image_tag spook.ghost.photo.key %>
           <% else %>
-            <img src="https://images.unsplash.com/photo-1583680599407-f73ab374fff4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" />
+            <%= image_tag "ghost_default" %>
           <% end %>
           <div class="card-spook-infos">
             <h2><%= spook.ghost.name %></h2>
@@ -25,7 +25,7 @@
           <% if spook.ghost.photo.key? %>
             <%= cl_image_tag spook.ghost.photo.key %>
           <% else %>
-            <img src="https://images.unsplash.com/photo-1583680599407-f73ab374fff4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" />
+            <%= image_tag "ghost_default" %>
           <% end %>
           <div class="card-spook-infos">
             <h2><%= spook.ghost.name %></h2>
@@ -43,7 +43,7 @@
           <% if spook.ghost.photo.key? %>
             <%= cl_image_tag spook.ghost.photo.key %>
           <% else %>
-            <img src="https://images.unsplash.com/photo-1583680599407-f73ab374fff4?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80" />
+            <%= image_tag "ghost_default" %>
           <% end %>
           <div class="card-spook-infos">
             <h2><%= spook.ghost.name %></h2>
