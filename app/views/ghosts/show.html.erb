@@ -1,4 +1,9 @@
 <div class="wrapper">
+  <div class="backbutton">
+      <%= link_to ghosts_path(@ghost) do %>
+      <i class="fa-solid fa-circle-arrow-left fa-2x" style="color:#A64842"></i>
+      <% end %>
+  </div>
   <div class="ghost-title">
     <div>
       <h1><%= @ghost.name.capitalize %> </h1>
