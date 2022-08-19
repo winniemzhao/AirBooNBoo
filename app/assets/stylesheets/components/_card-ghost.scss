@@ -96,3 +96,16 @@
   font-size: 32px;
   font-weight: bold;
 }
+
+.edit-icon, .delete-icon {
+  font-size: 20px;
+}
+.edit-icon:hover, .edit-icon:focus {
+  color: $coral;
+  // text-shadow: 2px 2px 6px rgba(0,0,0,0.14);
+}
+
+.delete-icon:hover, .delete-icon:focus {
+  color: $carmine;
+  // text-shadow: 2px 2px 6px rgba(0,0,0,0.14);
+}

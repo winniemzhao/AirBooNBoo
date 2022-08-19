@@ -14,11 +14,20 @@
           <div class="card-ghost-infos">
             <h4><%= ghost.name %></h4>
             <p class="card-ghost-description"><%= ghost.description %></p>
-            <p><%= ghost.address %></p>
             <p class="card-ghost-pricing"><span><%= number_to_currency(ghost.daily_rate) %></span> / night</p>
 
-            <%= link_to "Edit Ghost", edit_ghost_path(ghost) %>
-            <%= link_to "Delete Ghost", ghost_path(ghost), data: { turbo_method: 'delete', turbo_confirm: "Are you sure you want to delete #{ghost.name.capitalize}?"} %>
+            <%= link_to edit_ghost_path(ghost) do %>
+            <span class="edit-icon">
+              <i class="fas fa-edit" style="margin-right: 16px;"></i>
+            </span>
+            <% end %>
+
+            <%= link_to ghost_path(ghost), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete #{ghost.name.capitalize}?" } do %>
+            <span class="delete-icon">
+              <i class="fa-solid fa-trash" style="margin-right: 16px;"></i>
+            </span>
+            <% end %>
+
             <p class="card-ghost-active">
               <% if ghost.is_active %>
                 <%= "Active"  %>
