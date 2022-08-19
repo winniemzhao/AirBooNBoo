@@ -1,7 +1,6 @@
 <div class="container-index">
   <div class="container-ghost">
     <% @ghosts.each do | ghost | %>
-
       <div class="card-ghost">
         <div class="card-ghost-photo">
           <%= link_to ghost_path(ghost) do %>
@@ -18,7 +17,7 @@
             <p class="card-ghost-description"><%= ghost.description %></p>
             <p class="card-ghost-pricing"><span><%= number_to_currency(ghost.daily_rate) %></span> / night</p>
           </div>
-          <p><i class="fa-solid fa-ghost"></i> <%= ghost.spook_action %></p>
+          <p class="card-ghost-action"><i class="fa-solid fa-ghost"></i> <%= ghost.spook_action %></p>
         </div>
       </div>
     <% end %>

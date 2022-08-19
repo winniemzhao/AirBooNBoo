@@ -17,10 +17,10 @@
                 <p class="card-spook-status"><%= spook.status %></p>
                 <%= link_to my_spook_path(spook), data: { turbo_method: :delete, turbo_confirm: "Are you sure you want to delete this reservation?" } do %>
                 <i class="fa-solid fa-trash" style="padding-right: 10px;"></i>
-               <% end %>
+                <% end %>
                 <%= link_to edit_my_spook_path(spook) do %>
                 <i class="fas fa-edit" style="padding-left: 10px;"></i>
-                 <% end %>
+                <% end %>
               </div>
             </div>
       <% end %>
