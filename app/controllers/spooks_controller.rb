@@ -19,7 +19,7 @@ class SpooksController < ApplicationController
 
   def update_ghost_spooks
     if @spook.update!(spook_params)
-      redirect_to my_ghost_spooks_path, notice: "Your ghost's spook was successfully updated."
+      redirect_to my_ghost_spooks_path, notice: "Your ghost's reservation was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end
@@ -58,7 +58,7 @@ class SpooksController < ApplicationController
 
   def update
     if @spook.update(spook_params)
-      redirect_to my_spook_path(@spook), notice: "Your spook was successfully updated."
+      redirect_to my_spooks_path, notice: "Your reservation was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end
@@ -67,7 +67,7 @@ class SpooksController < ApplicationController
   def destroy
     # As a user, I can cancel a spook/haunting/request
     @spook.destroy
-    redirect_to my_spooks_path(@spook.ghost), status: :see_other
+    redirect_to my_spooks_path(@spook.ghost), status: :see_other, notice: "Your reservation was successfully cancelled."
   end
 
   private
