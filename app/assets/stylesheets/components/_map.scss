@@ -17,4 +17,6 @@
 #index-map {
   width: 100%;
   height: calc(100vh - 60px);
+  position: sticky;
+  top: 60px;
 }
