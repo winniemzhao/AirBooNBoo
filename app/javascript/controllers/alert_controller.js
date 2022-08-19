@@ -6,22 +6,8 @@ export default class extends Controller {
 
   connect() {
     console.log("hello from alert")
-  }
-
-  fade() {
-    console.log("fadinggggg")
-
-    const fadeOut = () => {
-      console.log("displaying none")
-      this.popupTarget.classList.add("d-none")
-    };
-
-    // const fadeOut = () => {
-    //   this.popupTarget.classList.add("transition")
-    //   console.log(" added transition")
-    // }
-
-    const myTimeout = setTimeout(fadeOut, 3000)
-
+    setTimeout(() => {
+      this.popupTarget.click()
+    }, 6000)
   }
 }
