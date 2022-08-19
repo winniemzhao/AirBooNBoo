@@ -14,23 +14,25 @@
 
   <body>
     <%= render "components/navbar" %>
-    <% flash.each do |type, msg| %>
-      <% if type == "alert" %>
-        <div class="alert flash flash-danger" role="alert">
-          <%= msg %>
-          <a data-bs-dismiss="alert" aria-label="Close">
-            <i class="fas fa-times"></i>
-          </a>
-        </div>
-      <% elsif type == "notice" %>
-        <div class="alert flash flash-success" role="alert">
-          <%= msg %>
-          <a data-bs-dismiss="alert" aria-label="Close">
-            <i class="fas fa-times"></i>
-          </a>
-        </div>
+    <div class="alert" data-controller="alert">
+      <% flash.each do |type, msg| %>
+        <% if type == "alert" %>
+          <div class="alert flash flash-danger" role="alert" data-alert-target="popup" data-action="mousemove->alert#fade">
+            <%= msg %>
+            <a data-bs-dismiss="alert" aria-label="Close">
+              <i class="fas fa-times"></i>
+            </a>
+          </div>
+        <% elsif type == "notice" %>
+          <div class="alert alert-dismissible flash flash-success fade show" role="alert" data-alert-target="popup" data-action="mousemove->alert#fade">
+            <%= msg %>
+            <a data-bs-dismiss="alert" aria-label="Close">
+              <i class="fas fa-times"></i>
+            </a>
+          </div>
+        <% end %>
       <% end %>
-    <% end %>
+    </div>
     <%= yield %>
     <%= render "components/footer" %>
   </body>
