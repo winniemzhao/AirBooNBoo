@@ -11,6 +11,7 @@
 
 .ghost-title h1 {
   margin-bottom: 8px;
+  font-weight: bold;
 }
 
 .ghost-info {
@@ -49,4 +50,13 @@
 
 .new-spook-form {
   margin-top: 16px;
+}
+
+.card-ghost-pricing {
+  color: $byzantium;
+}
+
+.card-ghost-pricing span {
+  font-size: 28px;
+  font-weight: bold;
 }

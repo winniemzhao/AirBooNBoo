@@ -9,3 +9,14 @@
 .mapboxgl-popup h4 {
   margin-bottom: 8px;
 }
+
+.container-map {
+  width: 50%;
+}
+
+#index-map {
+  width: 100%;
+  height: calc(100vh - 60px);
+  position: sticky;
+  top: 60px;
+}
