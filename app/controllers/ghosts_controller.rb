@@ -18,7 +18,7 @@ class GhostsController < ApplicationController
     @ghost = Ghost.new(ghost_params)
     @ghost.user = current_user
     if @ghost.save
-      redirect_to ghost_path(@ghost)
+      redirect_to my_ghosts_path
     else
       # raise
       render :new, status: :unprocessable_entity
