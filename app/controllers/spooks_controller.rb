@@ -58,7 +58,7 @@ class SpooksController < ApplicationController
 
   def update
     if @spook.update(spook_params)
-      redirect_to my_spook_path(@spook), notice: "Your spook was successfully updated."
+      redirect_to my_spooks_path, notice: "Your spook was successfully updated."
     else
       render :edit, status: :unprocessable_entity
     end
