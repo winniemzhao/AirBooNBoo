@@ -28,3 +28,19 @@
 .remove-btn-border {
   border: none;
 }
+
+.fa-circle-arrow-left {
+  position: relative;
+  top: 7px;
+  left: -75px;
+  opacity: 0.6;
+  transition: opacity 0.3s ease;
+}
+
+.fa-circle-arrow-left:hover {
+  opacity: 1;
+}
+
+.backbutton {
+  position: absolute;
+}
