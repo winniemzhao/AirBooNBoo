@@ -1,12 +1,33 @@
 .container-ghost {
   display: grid;
   grid-template-columns: 1fr 1fr;
-  margin: 16px;
+  margin: 32px;
   width: 50%;
+  grid-gap: 32px;
 }
 
 @media(max-width: 1667px) {
   .container-ghost {
+    grid-template-columns: 1fr;
+  }
+}
+
+.container-my-ghosts {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  width: 100%;
+  grid-gap: 32px;
+  margin-top: 32px;
+}
+
+@media(max-width: 1080px) {
+  .container-my-ghosts {
+    grid-template-columns: 1fr 1fr;
+  }
+}
+
+@media(max-width: 750px) {
+  .container-my-ghosts {
     grid-template-columns: 1fr;
   }
 }
@@ -16,7 +37,6 @@
   background: $ghost;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 16px;
-  margin: 16px;
 }
 
 .card-ghost-photo img {
@@ -40,25 +60,32 @@
   position: relative;
 }
 
-.card-ghost-infos > p {
-  margin-left: 16px;
-  width: 30%;
+.card-ghost-action {
   text-align: right;
   position: absolute;
   top: 32px;
   right: 32px;
 }
 
-.card-ghost-infos p:first-of-type {
+.card-ghost-active {
+  position: absolute;
+  text-align: left;
+  opacity: .7;
+  top: -305px;
+  left: 15px;
+  background-color: $ghost;
+  color: $space;
+  border-radius: 5px;
+  padding: 1px 5px;
+}
+
+.card-ghost-description {
+  margin-bottom: 8px;
   max-height: 60px;
   white-space: nowrap;
   text-overflow: ellipsis;
   width: 100%;
   overflow: hidden;
-}
-
-.card-ghost-description {
-  margin-bottom: 8px;
 }
 
 .card-ghost-pricing {
