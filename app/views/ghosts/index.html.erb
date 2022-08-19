@@ -2,8 +2,10 @@
   <div class="container-ghost">
     <% @ghosts.each do | ghost | %>
 
-      <div class="card-ghost d-flex flex-column align-items-center">
-      <div style="width: 300px">
+      <div class="card-ghost">
+      <%# <div class="card-ghost d-flex flex-column align-items-center"> %>
+      <%# <div style="width: 300px"> %>
+      <div>
         <%= link_to ghost_path(ghost) do %>
           <% if ghost.photo.key? %>
             <%= cl_image_tag ghost.photo.key, :width => 300, :height => 250, :alt=>"ghost profile picture", :crop => :fill %>
@@ -14,10 +16,9 @@
         </div>
         <div class="card-ghost-infos">
           <div>
-            <h2><%= link_to ghost.name, ghost_path(ghost) %></h2>
+            <h5><%= link_to ghost.name, ghost_path(ghost) %></h5>
             <p><%= ghost.description %></p>
-            <h2 class="card-ghost-pricing"><%= number_to_currency(ghost.daily_rate) %> per night</h2>
-
+            <h5 class="card-ghost-pricing"><%= number_to_currency(ghost.daily_rate) %> per night</h5>
           </div>
           <p><i class="fa-solid fa-ghost"></i> <%= ghost.spook_action %></p>
         </div>
