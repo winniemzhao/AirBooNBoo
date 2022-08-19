@@ -32,3 +32,10 @@
 .navbar .avatar {
   margin-left: 8px;
 }
+.navbar .navbar-brand {
+  transition: transform 0.3s ease;
+}
+
+.navbar .navbar-brand:hover {
+  transform: scale(1.05);
+}
