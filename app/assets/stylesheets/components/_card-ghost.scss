@@ -1,11 +1,3 @@
-// .container-ghost {
-//   display: flex;
-//   flex-wrap: wrap;
-//   flex-grow: 1;
-//   justify-content: center;
-//   width: 50%;
-// }
-
 .container-ghost {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -24,34 +16,27 @@
   background: $ghost;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 16px;
-  padding: 32px;
   margin: 16px;
-  // width: 350px;
-  // max-height: 100%;
 }
 
-.card-ghost > img {
-  // object-position: center;
-  margin: auto;
-  display: block;
+.card-ghost-photo img {
+  height: 320px;
+  width: 100%;
   object-fit: cover;
 }
 
-.card-ghost h5 {
-  // font-size: 16px;
+.card-ghost h4 {
   font-weight: bold;
   margin-bottom: 8px;
 }
 
 .card-ghost p {
-  // font-size: 12px;
-  opacity: .7;
-  margin-bottom: 8px;
+  opacity: .9;
   max-width: 100%;
 }
 
-.card-ghost .card-ghost-infos {
-  margin-top: 16px;
+.card-ghost-infos {
+  padding: 32px;
   position: relative;
 }
 
@@ -60,15 +45,27 @@
   width: 30%;
   text-align: right;
   position: absolute;
-  top: 0;
-  right: 0;
+  top: 32px;
+  right: 32px;
 }
-// .card-ghost-infos .card-ghost-user {
-//   position: absolute;
-//   right: 15px;
-//   top: 1px;
-// }
 
-a {
-  text-decoration: none;
+.card-ghost-infos p:first-of-type {
+  max-height: 60px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 100%;
+  overflow: hidden;
+}
+
+.card-ghost-description {
+  margin-bottom: 8px;
+}
+
+.card-ghost-pricing {
+  color: $byzantium;
+}
+
+.card-ghost-pricing span {
+  font-size: 32px;
+  font-weight: bold;
 }
