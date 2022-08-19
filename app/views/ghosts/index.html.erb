@@ -1,29 +1,33 @@
+<div class="container-index">
+  <div class="container-ghost">
+    <% @ghosts.each do | ghost | %>
 
-<div class="container-ghost">
-
-  <% @ghosts.each do | ghost | %>
-
-    <div class="card-ghost d-flex flex-column align-items-center">
-    <div style="width: 300px">
-      <%= link_to ghost_path(ghost) do %>
-        <% if ghost.photo.key? %>
-          <%= cl_image_tag ghost.photo.key, :width => 300, :height => 250, :alt=>"ghost profile picture", :crop => :fill %>
-        <% else %>
-          <%= image_tag "ghost_default.jpg", :width => 300, :height => 250, :alt=>"default ghost profile", :crop => :fill %>
-        <% end %>
-      <% end %>
-      </div>
-      <div class="card-ghost-infos">
-        <div>
-          <h2><%= link_to ghost.name, ghost_path(ghost) %></h2>
-          <p><%= ghost.description %></p>
-          <h2 class="card-ghost-pricing"><%= number_to_currency(ghost.daily_rate) %> per night</h2>
-
+      <div class="card-ghost">
+        <div class="card-ghost-photo">
+          <%= link_to ghost_path(ghost) do %>
+            <% if ghost.photo.key? %>
+              <%= cl_image_tag ghost.photo.key, :alt=>"ghost profile picture", :crop => :fill %>
+            <% else %>
+              <%= image_tag "ghost_default.jpg", :alt=>"default ghost profile", :crop => :fill %>
+            <% end %>
+          <% end %>
         </div>
-        <p><i class="fa-solid fa-ghost"></i> <%= ghost.spook_action %></p>
+        <div class="card-ghost-infos">
+          <div>
+            <h4><%= link_to ghost.name, ghost_path(ghost) %></h4>
+            <p class="card-ghost-description"><%= ghost.description %></p>
+            <p class="card-ghost-pricing"><span><%= number_to_currency(ghost.daily_rate) %></span> / night</p>
+          </div>
+          <p><i class="fa-solid fa-ghost"></i> <%= ghost.spook_action %></p>
+        </div>
       </div>
-
-
+    <% end %>
+  </div>
+  <div class="container-map">
+    <div id="index-map"
+    data-controller="map"
+    data-map-markers-value="<%= @markers.to_json %>"
+    data-map-api-key-value="<%= ENV['MAPBOX_API_KEY'] %>">
     </div>
-  <% end %>
+  </div>
 </div>

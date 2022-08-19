@@ -1,57 +1,71 @@
-
 .container-ghost {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  margin: 16px;
+  width: 50%;
 }
 
+@media(max-width: 1667px) {
+  .container-ghost {
+    grid-template-columns: 1fr;
+  }
+}
 
 .card-ghost {
   overflow: hidden;
   background: $ghost;
   box-shadow: 0 0 15px rgba(0,0,0,0.2);
   border-radius: 16px;
-  padding: 10px;
-  margin: 15px;
-  width: 350px;
-  // max-height: 100%;
+  margin: 16px;
 }
 
-.card-ghost > img {
-  // object-position: center;
-  margin: auto;
-  display: block;
+.card-ghost-photo img {
+  height: 320px;
+  width: 100%;
   object-fit: cover;
 }
 
-.card-ghost h2 {
-  font-size: 16px;
+.card-ghost h4 {
   font-weight: bold;
-  margin: 0;
+  margin-bottom: 8px;
 }
 
 .card-ghost p {
-  font-size: 12px;
-  opacity: .7;
-  margin: 0;
-  max-width: 200px;
+  opacity: .9;
+  max-width: 100%;
 }
 
-
-.card-ghost .card-ghost-infos {
-  padding: 16px;
-  display: flex;
-  justify-content: space-between;
-  // align-items: flex-end;
+.card-ghost-infos {
+  padding: 32px;
   position: relative;
 }
 
-.card-ghost-infos .card-ghost-user {
+.card-ghost-infos > p {
+  margin-left: 16px;
+  width: 30%;
+  text-align: right;
   position: absolute;
-  right: 15px;
-  top: 1px;
+  top: 32px;
+  right: 32px;
 }
 
-a {
-  text-decoration: none;
+.card-ghost-infos p:first-of-type {
+  max-height: 60px;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 100%;
+  overflow: hidden;
+}
+
+.card-ghost-description {
+  margin-bottom: 8px;
+}
+
+.card-ghost-pricing {
+  color: $byzantium;
+}
+
+.card-ghost-pricing span {
+  font-size: 32px;
+  font-weight: bold;
 }
