@@ -4,5 +4,8 @@
     <%= f.input :start_date, as: :date, html5: true %>
     <%= f.input :end_date, as: :date, html5: true %>
     <%= f.submit 'Reserve', class: 'btn-flat remove-btn-border' %>
+    <%= link_to ghosts_path(@ghost) do %>
+    <i class= "fa-solid fa-rotate-left ms-3"></i>
+    <% end %>
   <% end %>
 </div>
