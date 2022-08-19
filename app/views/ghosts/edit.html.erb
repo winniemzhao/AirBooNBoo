@@ -1,6 +1,6 @@
-<div class="container">
-  <div class="row justify-content-center">
-    <div class="col-6">
+<div class="wrapper">
+  <div class="row justify-content-center form-row">
+    <div class="col-8 card-form">
       <h1 class="d-flex justify-content-between align-items-center">
         <%= @ghost.name %>
         <% if @ghost.photo.key? %>
@@ -17,9 +17,13 @@
         <%= f.input :description, placeholder: @ghost.description %>
         <%= f.input :photo, label: "Change photo", as: :file %>
         <%= f.input :is_active, :as => :select, :collection => [['No',false],['Yes',true]], :include_blank => false, :label => "Active" %>
-        <%= f.submit "Post your Ghost", class: "btn-flat" %>
+        <%= f.submit "Post your Ghost", class: "btn-flat remove-btn-border" %>
       <% end %>
     </div>
+    <div class="row justify-content-center form-row">
+    <div class="col-8 mt-3 px-4">
+      <%= link_to "Go Back", my_ghosts_path(@ghost) %>
+    </div>
+    </div>
   </div>
-     <%= link_to "Go Back", my_ghosts_path(@ghost) %>
 </div>
